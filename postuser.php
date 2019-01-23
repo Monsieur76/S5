@@ -30,7 +30,7 @@ class Manage_Post
                     <?php echo $_POST['author'];?>
                     <br><input type="text" name="author" value="<?=$_POST['author']; ?>" placeholder='Auteur' /><br>
                     <input type='submit' name='update_post' value='Modifier' />
-                    <input type='hidden' name='id_update_post' value="<?= $donne['id']; ?>" /></form><?php
+                    <input type='hidden' name='id_update_post' value="<?= $_POST['id_post_modifie']; ?>" /></form><?php
                 }
     }
 
@@ -84,14 +84,17 @@ class Post_User
         public $contained;
         public $author;
 
-            function update_user($title,$chapo,$contained,$author)
+            function update_user($title,$chapo,$contained,$author,$post)
             {
+                try{
                     $db = Database::get();
-                    $post = $_POST['id_update_post'];
                     $update = "UPDATE post SET title=? , chapo=?, contained=? , author=? , date_post=NOW() WHERE id=?";
-                    echo '<pre>'.$update;
                     $datab_update=$db->prepare($update);
                     $data=$datab_update->execute(array($title,$chapo,$contained,$author,$post));
+                }
+                    catch (Exception $e){
+                    $e->getMessage();
+                }
             }
     }
 
@@ -117,9 +120,13 @@ class Post_User
             while ($donne=$datab_select->fetch()){
                 if (isset($_POST['delete'])){
                     $id = $_POST['id_delete'];
+                    $delete_post_ = "DELETE  FROM post WHERE post.id = '$id'";
                     $delete_post_com = "DELETE post , commentary FROM post INNER JOIN commentary ON post.id = commentary.id_post WHERE post.id = '$id'";
                     $datab_delete=$db->prepare($delete_post_com);
+                    $datab_delet=$db->prepare($delete_post_);
                     $data = $datab_delete->execute();
+                    $data = $datab_delet->execute();
+
                 }
 
                 else {
@@ -132,7 +139,6 @@ class Post_User
 
             }
         }
-
 
     }
   
