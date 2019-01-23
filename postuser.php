@@ -126,6 +126,7 @@ class Post_User
                     $datab_delet=$db->prepare($delete_post_);
                     $data = $datab_delete->execute();
                     $data = $datab_delet->execute();
+
                 }
 
                 else {
@@ -135,7 +136,9 @@ class Post_User
                     <input type='hidden' name='id_delete' value='<?=$donne['id'];?>' />
                     </form> <?php
                 }
+
             }
         }
+
     }
   
