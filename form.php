@@ -9,6 +9,7 @@ class Form_Class
                         $objet= strip_tags(htmlspecialchars($_POST['name']&& $_POST['first_name']));
                         $message=strip_tags(htmlspecialchars($_POST['message']));
                         $sender=strip_tags(htmlspecialchars($_POST['mail']));
+
                         $recipient='gaetanhenry76@gmail.com';
                         extract($_POST);
                         mail($recipient,$objet,$message,$sender);

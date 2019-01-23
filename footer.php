@@ -1,0 +1,1 @@
+<div class=lien><a href='connect_resgister_view.php' > Administration Blog </a></div>
