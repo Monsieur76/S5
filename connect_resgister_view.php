@@ -16,20 +16,21 @@ $control=new Controller;
 
 if ($control->is_user_connected())
     {
-?>
-        Déconnexion 
+?><br><br><br><br><br><br>
+        <p>Déconnexion 
         <form action='index_view.php' method='POST'/>
         <input type='submit' name='deconnec' value='Déconnexion' />
-        <input type='hidden' name='deco'   value='Déconnexion' /></form><?php
+        <input type='hidden' name='deco'   value='Déconnexion' /></form></p><?php
     }
 else
     {
-?>
+?><br><br><br><br><br><br>
+        
+        <p><h1>Connexion</h1><br><br><br>
         <form method='POST'/>
-        <h1>Connexion</h1>
         <input type="text" name="name_connect" placeholder='Nom'/> <br>
         <input type="password" name="password_connect" placeholder='Mot de pass' /><br>
-        <input type='submit' name='submit_connect' value='Envoyer' />
+        <input type='submit' name='submit_connect' value='Envoyer' /></p>
         </form>
         <?php 
     }
