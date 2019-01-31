@@ -1,4 +1,3 @@
-
 <?php 
 session_start();
 require_once('controller.php');
@@ -21,57 +20,30 @@ $control=new Controller;
                 integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
                 crossorigin="anonymous"></script>
         <link rel="stylesheet" href="view.css"/>
+        <meta charset="utf-8"/>
         <?php include('header.php');?>
     </head>
+    <body>
     <header><?php require('menu.php'); ?></header>
-    <?php
-if ($control->is_user_connected())
-    {
-?><div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
-        <h1>Déconnexion </h1>
-    </div>
-        <div class="row">
-        <form action='index_view.php' method='POST'/>
-            <div class="form-group col-12">
-        <input type='submit' name='deconnec' value='Déconnexion' class="btn-dark form-control"
-               style="width: 150px;height: 30px;"/>
-            </div>
-            <div class="form-group col-12">
-        <input type='hidden' name='deco' class="btn-dark"  value='Déconnexion' class="form-control" /></form>
-            </div>
+                    <h1>Ajouté commentaire</h1>
         </div>
-    </div><?php
-    }
-else
-    {
-?><div class="container-fluid">
         <div class="row">
-        
-       <h1>Connexion</h1>
-    </div>
+         <?php require ('form.php'); ?>
+        </div>
         <div class="row">
-        <form method='POST'/>
-            <div class="form-group col-12">
-        <input type="text" name="name_connect" placeholder='Nom'class="form-control"/>
-            </div>
-                <div class="form-group col-12">
-        <input type="password" name="password_connect" placeholder='Mot de pass' class="form-control"/>
-                </div>
+
+<h5>Votre commentaire a bien été ajouté.
+    Veuillez patientez avant que votre commentaire soit ajouté.</h5>
+        </div>
             <div class="row">
-                    <div class="form-group">
-        <input type='submit' name='submit_connect' value='Envoyer' class="btn-dark form-control"
-               style="width: 100px;height: 30px;"/>
-                    </div>
+<form action='display_post_liste_view.php' class="form-group col-lg-12">
+<input type='submit' name='back' class="btn-dark" value='retour a la liste des postes' /></form>
             </div>
-            </form>
         </div>
-        </div>
-        <?php 
-    }
-?>
     </body>
     <footer>
-        <?php require('footer.php');?>
+        <?php require('footer.php');?></p>
     </footer>
 </html>

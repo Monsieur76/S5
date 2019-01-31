@@ -1,8 +1,9 @@
-
 <?php 
 session_start();
 require_once('controller.php');
+require_once('postuser.php');
 $control=new Controller;
+$post = new Manage_Post;
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,55 +24,20 @@ $control=new Controller;
         <link rel="stylesheet" href="view.css"/>
         <?php include('header.php');?>
     </head>
+    <body>
     <header><?php require('menu.php'); ?></header>
-    <?php
-if ($control->is_user_connected())
-    {
-?><div class="container-fluid">
-        <div class="row">
-        <h1>Déconnexion </h1>
+<div class="container-fluid">
+    <div class="row">
+<h1> L'article </h1>
     </div>
-        <div class="row">
-        <form action='index_view.php' method='POST'/>
-            <div class="form-group col-12">
-        <input type='submit' name='deconnec' value='Déconnexion' class="btn-dark form-control"
-               style="width: 150px;height: 30px;"/>
-            </div>
-            <div class="form-group col-12">
-        <input type='hidden' name='deco' class="btn-dark"  value='Déconnexion' class="form-control" /></form>
-            </div>
-        </div>
-    </div><?php
-    }
-else
-    {
-?><div class="container-fluid">
-        <div class="row">
-        
-       <h1>Connexion</h1>
-    </div>
-        <div class="row">
-        <form method='POST'/>
-            <div class="form-group col-12">
-        <input type="text" name="name_connect" placeholder='Nom'class="form-control"/>
-            </div>
-                <div class="form-group col-12">
-        <input type="password" name="password_connect" placeholder='Mot de pass' class="form-control"/>
-                </div>
+
+
             <div class="row">
-                    <div class="form-group">
-        <input type='submit' name='submit_connect' value='Envoyer' class="btn-dark form-control"
-               style="width: 100px;height: 30px;"/>
-                    </div>
+<h5><?php $post -> display_post() ?></h5>
             </div>
-            </form>
         </div>
-        </div>
-        <?php 
-    }
-?>
     </body>
     <footer>
-        <?php require('footer.php');?>
+        <?php require('footer.php');?></p>
     </footer>
 </html>

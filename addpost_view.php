@@ -1,4 +1,3 @@
-
 <?php 
 session_start();
 require_once('controller.php');
@@ -23,55 +22,36 @@ $control=new Controller;
         <link rel="stylesheet" href="view.css"/>
         <?php include('header.php');?>
     </head>
+    <body>
     <header><?php require('menu.php'); ?></header>
-    <?php
-if ($control->is_user_connected())
-    {
-?><div class="container-fluid">
-        <div class="row">
-        <h1>Déconnexion </h1>
+    <div class="container-fluid">
+    <div class="row">
+                    <h1>Ajouter un Article</h1>
     </div>
         <div class="row">
-        <form action='index_view.php' method='POST'/>
-            <div class="form-group col-12">
-        <input type='submit' name='deconnec' value='Déconnexion' class="btn-dark form-control"
-               style="width: 150px;height: 30px;"/>
-            </div>
-            <div class="form-group col-12">
-        <input type='hidden' name='deco' class="btn-dark"  value='Déconnexion' class="form-control" /></form>
-            </div>
+                    <form action='addpost_view.php' method='POST' />
+        <div class="form-group">
+                        <input type="text" name="title" placeholder='Titre' class="form-control text-center"/>
         </div>
-    </div><?php
-    }
-else
-    {
-?><div class="container-fluid">
-        <div class="row">
-        
-       <h1>Connexion</h1>
-    </div>
-        <div class="row">
-        <form method='POST'/>
-            <div class="form-group col-12">
-        <input type="text" name="name_connect" placeholder='Nom'class="form-control"/>
+            <div class="form-group">
+                <input type="text" name="author" placeholder='Auteur' class="form-control text-center"/>
             </div>
-                <div class="form-group col-12">
-        <input type="password" name="password_connect" placeholder='Mot de pass' class="form-control"/>
+                <div class="form-group">
+                        <input type="text" name="chapo" placeholder='Châpo'  class="form-control text-center"/>
                 </div>
-            <div class="row">
                     <div class="form-group">
-        <input type='submit' name='submit_connect' value='Envoyer' class="btn-dark form-control"
-               style="width: 100px;height: 30px;"/>
+                        <textarea name="contained" placeholder='Contenue' class="form-control text-center">
+                        </textarea>
                     </div>
-            </div>
-            </form>
-        </div>
-        </div>
-        <?php 
-    }
-?>
+                        <div class="form-group">
+                        <input type='submit' name='add_post' class="btn-dark" value='Envoyer'
+                               style="width: 100px;height: 30px;" class="form-control text-center"/>
+                        </div>
+        </form>
+    </div>
+    </div>
     </body>
     <footer>
-        <?php require('footer.php');?>
+        <?php require('footer.php');?></p>
     </footer>
 </html>

@@ -11,12 +11,15 @@ class Connect
                 $datab=$db->prepare('SELECT * FROM admin WHERE register=1');
                 $data=$datab->execute();
                     while ($donne=$datab->fetch()){
-                        if ($donne['pseudo']== $name && $donne['pass']==$password ){
+                        if ($donne['pseudo']== $name && $donne['pass']==$password){
                             $_SESSION['pseudo']=$name;
+                            $token = new Tokenn;
+                            $token->token();
                         }
                         else{
                             
                         }
                     }
+                    $datab->closeCursor();
     }
 }
