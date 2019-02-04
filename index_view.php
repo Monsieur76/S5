@@ -72,4 +72,6 @@ $control = new Controller;
 <footer>
  <?php require('footer.php'); ?>
 </footer>
+
 </html>
+
