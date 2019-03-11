@@ -1,8 +1,9 @@
 <?php
+
 namespace App\src\Model;
 class Token
 {
-    public function token ()
+    public function token()
     {
         $mincarac = str_shuffle('azertyuiopqsdfghjklmwxcvbn0123456789AZERTYUIOPQSDFGHJKLMWXCVBNé');
         $token = '';

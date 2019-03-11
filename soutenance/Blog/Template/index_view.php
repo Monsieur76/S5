@@ -1,5 +1,5 @@
 <?php
-$this->title ='Acceuil'; ?>
+$this->title = 'Acceuil'; ?>
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
@@ -83,7 +83,8 @@ $this->title ='Acceuil'; ?>
                         </div>
                         <div class="form-group" style="margin-top: 30px">
                             <button type='submit' name="submit_form"
-                                    class="btnColor form-control text-center btn-dark">Envoyer</button>
+                                    class="btnColor form-control text-center btn-dark">Envoyer
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -97,14 +98,17 @@ $this->title ='Acceuil'; ?>
         </div>
         <ul class="col-lg-12">
             <div class="col-lg-12" style="display: flex">
-            <li style="list-style-type: none;" class="rotate col-lg-6">
+                <li style="list-style-type: none;" class="rotate col-lg-6">
                     <a href="https://github.com/Monsieur76/blog_OC"><i class="fab fa-github-alt fa-5x"></i></a>
                 </li>
-                <li style="list-style-type: none;" class="rotate col-lg-6"><a href="#"><i class="fab fa-facebook-square fa-5x"></i></a></li>
+                <li style="list-style-type: none;" class="rotate col-lg-6"><a href="#"><i
+                                class="fab fa-facebook-square fa-5x"></i></a></li>
             </div>
             <div class="col-lg-12" style="display: flex;margin-top: 30px">
-                <li style="list-style-type: none;" class="rotate col-lg-6"><a href="#"><i class="fab fa-twitter fa-5x"></i></a></li>
-                <li style="list-style-type: none;" class="rotate col-lg-6"><a href="#"><i class="fab fa-linkedin fa-5x"></i></a></li>
+                <li style="list-style-type: none;" class="rotate col-lg-6"><a href="#"><i
+                                class="fab fa-twitter fa-5x"></i></a></li>
+                <li style="list-style-type: none;" class="rotate col-lg-6"><a href="#"><i
+                                class="fab fa-linkedin fa-5x"></i></a></li>
             </div>
         </ul>
     </div>

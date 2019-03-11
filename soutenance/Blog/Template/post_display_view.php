@@ -1,5 +1,5 @@
 <?php
-$this->title ='aficher';
+$this->title = 'aficher';
 ?>
 <div class="container">
     <div class="row">
@@ -54,17 +54,17 @@ $this->title ='aficher';
     </div>
     <div class="text-center" style="margin-top: 50px;margin-bottom: 30px">
         <div class="col-lg-12">
-        <h2>Commentaire</h2>
-    </div>
-    <div class="row">
-    <div class="col-lg-12" style="margin-bottom: 50px;overflow-wrap: break-word">
-        <?php foreach ($commentary as $donne => $k) { ?>
-            <strong><?= $k[1] ?></strong><br>
-            <?= $k[2] ?><br>
-            <div style="margin-bottom: 50px"> <?= $k[0] ?><br>
+            <h2>Commentaire</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-12" style="margin-bottom: 50px;overflow-wrap: break-word">
+                <?php foreach ($commentary as $donne => $k) { ?>
+                    <strong><?= $k[1] ?></strong><br>
+                    <?= $k[2] ?><br>
+                    <div style="margin-bottom: 50px"> <?= $k[0] ?><br>
+                    </div>
+                <?php } ?>
             </div>
-        <?php } ?>
-    </div>
-    </div>
+        </div>
     </div>
 </div>

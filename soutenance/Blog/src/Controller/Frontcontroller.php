@@ -1,9 +1,12 @@
 <?php
+
 namespace App\src\Controller;
+
 use App\src\DAO\Post;
 use App\src\DAO\Commentary;
 use App\src\DAO\User;
 use App\src\Model\View;
+
 class FrontController
 {
     private $view;
@@ -11,14 +14,16 @@ class FrontController
     private $commentary;
     private $control;
     private $user;
+
     function __construct()
     {
         $this->user = new User;
         $this->post = new Post;
         $this->view = new View;
         $this->commentary = new Commentary;
-        $this->control = new Controller;
+        $this->control = new BackController;
     }
+
     public function registration()
     {
         $this->view->render('registration_view');
@@ -32,12 +37,14 @@ class FrontController
     public function displayPost()
     {
         $post = $this->post->postSelectDisplay();
-        $this->view->render('display_post_liste_view',['post'=>$post]);
+        $this->view->render('display_post_liste_view', ['post' => $post]);
     }
+
     public function connect()
     {
         $this->view->render('connect_resgister_view');
     }
+
     public function displayPostList($id)
     {
         $commentary = $this->commentary->commentary($id);
@@ -45,18 +52,17 @@ class FrontController
         if ($post > 0) {
             return $this->view->render('post_display_view', ['post' => $post,
                 'commentary' => $commentary, 'id' => $id]);
-        }
-        else {
+        } else {
             return $this->view->render('erreur_404');
         }
     }
-    public function addConfirmCommentary($id,$com,$name)
+
+    public function addConfirmCommentary($id, $com, $name)
     {
-        if ($id>0 & !empty($com)){
-            $this->commentary->insertCom($id,$com,$name);
+        if ($id > 0 & !empty($com)) {
+            $this->commentary->insertCom($id, $com, $name);
             return $this->view->render('return_display');
-        }
-        else {
+        } else {
             return $this->view->render('erreur_404');
         }
     }
@@ -65,10 +71,11 @@ class FrontController
     {
         $this->view->render('empty_or_wrong_registration');
     }
-    public function confirmUpdate($chapo,$title ,$contained, $author ,$id_post)
+
+    public function confirmUpdate($chapo, $title, $contained, $author, $id_post)
     {
-        $this->view->render('confirm_update',['title'=>$title ,
-            'contained'=>$contained,'author'=>$author,'id_post'=>$id_post,'chapo'=>$chapo]);
+        $this->view->render('confirm_update', ['title' => $title,
+            'contained' => $contained, 'author' => $author, 'id_post' => $id_post, 'chapo' => $chapo]);
     }
 
     public function false()
@@ -76,25 +83,26 @@ class FrontController
         $this->view->render('false');
     }
 
-    public function controllerEmptyRegister($name,$pass,$mail)
+    public function controllerEmptyRegister($name, $pass, $mail)
     {
         $name = strip_tags($name);
         $pass = strip_tags($pass);
         $mail = strip_tags($mail);
         $sql = $this->user->duplicationMail($mail);
-        if ($sql === null){
-            $this->user->registerNew($name,$pass,$mail);
+        if ($sql === null) {
+            $this->user->registerNew($name, $pass, $mail);
             return $this->view->render('trueRegister');
-        }
-        else {
+        } else {
             return $this->view->render('duplication_mail');
         }
     }
+
     public function displayPostControlList()
     {
         $this->post->postSelectDisplay();
     }
-    public function htmlTitleChapo($title,$chapo,$author,$contained,$id)
+
+    public function htmlTitleChapo($title, $chapo, $author, $contained, $id)
     {
         $title = strip_tags($title);
         $chapo = strip_tags($chapo);
@@ -102,40 +110,44 @@ class FrontController
         $author = strip_tags($author);
         $post = $id;
         $Post = new Post;
-        if ($post>0) {
+        if ($post > 0) {
             $Post->updateUser($title, $chapo, $contained, $author, $post);
             return $this->view->render('true');
-        }
-        else {
+        } else {
             return $this->view->render('erreur_404');
         }
     }
-    public function addPostConfirmationTrue($title,$chapo,$author,$contained)
+
+    public function addPostConfirmationTrue($title, $chapo, $author, $contained)
     {
-        if (!empty($title) & !empty($author) & !empty($chapo) & !empty($contained)){
+        if (!empty($title) & !empty($author) & !empty($chapo) & !empty($contained)) {
             $chapo = strip_tags($chapo);
             $title = strip_tags($title);
             $contained = strip_tags($contained);
             $author = strip_tags($author);
-            $this->control->htmlTitleChapoPost($title,$chapo,$author,$contained);
+            $this->control->htmlTitleChapoPost($title, $chapo, $author, $contained);
             return $this->view->render('true');
         }
     }
+
     public function adminUserTrue()
     {
         $this->view->render('true');
     }
+
     public function controlConfirmCommentary($id)
     {
-        $this->view->render('valid_admin_commentary',['id'=>$id]);
+        $this->view->render('valid_admin_commentary', ['id' => $id]);
     }
+
     public function erreurRegister()
     {
         $this->view->render('empty_or_wrong_registration');
     }
-    public function confirmationModificationComentaire($title,$chapo,$contained,$author,$id)
+
+    public function confirmationModificationComentaire($title, $chapo, $contained, $author, $id)
     {
-        $this->view->render('form_modification',['title'=>$title,'chapo'=>$chapo ,
-            'contained'=>$contained, 'author'=>$author, 'id'=>$id]);
+        $this->view->render('form_modification', ['title' => $title, 'chapo' => $chapo,
+            'contained' => $contained, 'author' => $author, 'id' => $id]);
     }
 }

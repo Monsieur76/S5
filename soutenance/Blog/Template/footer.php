@@ -1,6 +1,6 @@
 <?php
-$control = new \App\src\Controller\Controller;
-if ($control->isUserConnected()===true) {
+$control = new \App\src\Controller\BackController;
+if ($control->isUserConnected() === true) {
     ?>
 
     <div class="border-top border-dark  col-lg-12">
@@ -19,29 +19,25 @@ if ($control->isUserConnected()===true) {
                         Administration </a>
                 </div>
             </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+    <?php
+} else {
+    ?>
+    <div class="border-top border-dark col-lg-12">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="form-groupe">
+                    <a type="button" href='?route=Connexion'
+                       class="btnColor btn-dark form-control">
+                        Administration Blog </a>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-
-
-<?php
-}
-    else{
-        ?>
-        <div class="border-top border-dark col-lg-12">
-            <div class="row">
-                <div class="col-sm-2">
-                    <div class="form-groupe">
-                        <a type="button" href='?route=Connexion'
-                           class="btnColor btn-dark form-control">
-                            Administration Blog </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-  <?php  }
+<?php }

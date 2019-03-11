@@ -1,5 +1,5 @@
 <?php
-$this->title ='liste poste';
+$this->title = 'liste poste';
 ?>
 <div class="container">
     <div class="row">

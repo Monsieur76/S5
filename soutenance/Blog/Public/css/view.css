@@ -1,17 +1,18 @@
-.container-fluid,.row  ,.container{
- justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-  text-align: center;
+.container-fluid, .row, .container {
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    text-align: center;
 }
-.input , .form1
-{
-  text-align: center;
+
+.input, .form1 {
+    text-align: center;
 }
-header
-{
+
+header {
     background-image: url(../img/system.png);
 }
+
 @keyframes myrotate {
     0% {
         transform: rotate(0deg);
@@ -67,14 +68,14 @@ header
 }
 
 .rotate {
-    cursor:pointer;
+    cursor: pointer;
 }
-.table
-{
+
+.table {
     word-wrap: break-word;
     background-color: black;
 }
-.btnColor
-{
-    background-color:black;
+
+.btnColor {
+    background-color: black;
 }

@@ -288,7 +288,7 @@ de charbons bleus métalliques.'
                                             <div class="modal-dialog modal-xl">
                                                 <div class="modal-content">
                                                     <div class=""
-                                                         style="color: black"><?=$k[1]?></div>
+                                                         style="color: black"><?= $k[1] ?></div>
                                                 </div>
                                             </div>
                                         </div>

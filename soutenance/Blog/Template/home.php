@@ -1,7 +1,6 @@
 <?php
-namespace App\Template ;
-use App\src\Controller\FrontController;
-$front = new FrontController;
+namespace App\Template;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,8 +9,9 @@ $front = new FrontController;
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" href="../Public/css/view.css"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Public/css/view.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title><?= isset($title) ? $title : '' ?></title>
     <meta charset="utf-8"/>
 </head>
@@ -19,7 +19,7 @@ $front = new FrontController;
 <header> <?php require('menu.php'); ?> </header>
 
 <div id="content">
-    <?= isset($content) ? $content  : ''?>
+    <?= isset($content) ? $content : '' ?>
 </div>
 <footer>
     <?php require('footer.php'); ?>
