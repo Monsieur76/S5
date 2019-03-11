@@ -1,0 +1,80 @@
+.container-fluid,.row  ,.container{
+ justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  text-align: center;
+}
+.input , .form1
+{
+  text-align: center;
+}
+header
+{
+    background-image: url(../img/system.png);
+}
+@keyframes myrotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}
+
+@-o-keyframes myrotate {
+    0% {
+        -o-transform: rotate(0deg);
+    }
+    100% {
+        -o-transform: rotate(359deg);
+    }
+}
+
+@-moz-keyframes myrotate {
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(359deg);
+    }
+}
+
+@-webkit-keyframes myrotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+@-ms-keyframes myrotate {
+    0% {
+        -ms-transform: rotate(0deg);
+    }
+    100% {
+        -ms-transform: rotate(359deg);
+    }
+}
+
+
+.rotate:hover {
+    -webkit-animation: myrotate 1.5s infinite linear;
+    -moz-animation: myrotate 1.5s infinite linear;
+    -ms-animation: myrotate 1.5s infinite linear;
+    -o-animation: myrotate 1.5s infinite linear;
+    animation: myrotate 1.5s infinite linear;
+}
+
+.rotate {
+    cursor:pointer;
+}
+.table
+{
+    word-wrap: break-word;
+    background-color: black;
+}
+.btnColor
+{
+    background-color:black;
+}
