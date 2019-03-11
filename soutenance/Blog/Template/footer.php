@@ -2,7 +2,6 @@
 $control = new \App\src\Controller\BackController;
 if ($control->isUserConnected() === true) {
     ?>
-
     <div class="border-top border-dark  col-lg-12">
         <div class="row">
             <div class="col-sm-2">
@@ -21,9 +20,6 @@ if ($control->isUserConnected() === true) {
             </div>
         </div>
     </div>
-    </div>
-    </div>
-
 
     <?php
 } else {
@@ -39,5 +35,4 @@ if ($control->isUserConnected() === true) {
             </div>
         </div>
     </div>
-
 <?php }

@@ -19,7 +19,7 @@ class Form
         try {
             if (isset($_POST['submit_form'])) {
                 $this->myConfig = parse_ini_file("config.ini", true);
-                $this->recipient = $this->myConfig['Section3']['mailSend'];
+                $this->recipient = $this->myConfig['SendMail']['mailSend'];
                 extract($_POST);
                 if (filter_var($sender, FILTER_VALIDATE_EMAIL)) {
                     try {

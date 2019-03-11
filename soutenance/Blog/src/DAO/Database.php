@@ -22,11 +22,11 @@ class Database
     public static function get()
     {
         self::$myConfig = parse_ini_file("config.ini", true);
-        self::$name = self::$myConfig['Section1']['dbname'];
-        self::$host = self::$myConfig['Section1']['host'];
-        self::$namecharset = self::$myConfig['Section1']['charset'];
-        self::$username = self::$myConfig['Section1']['username'];
-        self::$pass = self::$myConfig['Section1']['pass'];
+        self::$name = self::$myConfig['Database']['dbname'];
+        self::$host = self::$myConfig['Database']['host'];
+        self::$namecharset = self::$myConfig['Database']['charset'];
+        self::$username = self::$myConfig['Database']['username'];
+        self::$pass = self::$myConfig['Database']['pass'];
         if (!(self::$db instanceof self)) {
             try {
                 self::$db = new PDO(self::$sql . '=' . self::$host . ';' . self::$dbn . '=' . self::$name .

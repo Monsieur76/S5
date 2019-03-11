@@ -16,13 +16,18 @@ namespace App\Template;
     <meta charset="utf-8"/>
 </head>
 <body>
-<header> <?php require('menu.php'); ?> </header>
-
-<div id="content">
-    <?= isset($content) ? $content : '' ?>
-</div>
+<header>
+    <div id="menu">
+        <?= isset($menu) ? $menu : '' ?>
+    </div>
+</header>
+    <div id="content">
+        <?= isset($content) ? $content : '' ?>
+    </div>
 <footer>
-    <?php require('footer.php'); ?>
+    <div id="footer">
+        <?= isset($footer) ? $footer : '' ?>
+    </div>
 </footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
