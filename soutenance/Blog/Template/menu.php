@@ -4,7 +4,7 @@ if ($control->isUserConnected() === true) {
     ?>
     <div class="container-fluid">
         <div class="menu1" >
-            <div class="row " style="margin-top: 20px;">
+            <div class="row" style="margin-top: 20px;">
                 <ul class="nav nav-tabs">
                     <span class="border"><li><a class="btnColor btn-dark nav-link nav-item text-light"
                                                 href="?route=Accueil">Accueil</a></li></span>

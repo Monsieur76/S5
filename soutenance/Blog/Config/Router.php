@@ -10,31 +10,29 @@ class Router
 {
     private $front;
     private $control;
-    private $route;
 
     function __construct()
     {
-        $this->route = $_GET['route'];
         $this->front = new Frontcontroller;
         $this->control = new BackController;
     }
 
     public function run()
     {
-        if (isset($this->route)) {
-            if ($this->route === 'enregistrement') {
+        if (isset($_GET['route'])) {
+            if ($_GET['route'] === 'enregistrement') {
                 $this->front->registration();
-            } elseif ($this->route === 'Accueil') {
+            } elseif ($_GET['route'] === 'Accueil') {
                 $this->front->home();
-            } elseif ($this->route === 'liste_des_postes') {
+            } elseif ($_GET['route'] === 'liste_des_postes') {
                 $this->front->displayPost();
-            } elseif ($this->route === 'Connexion') {
+            } elseif ($_GET['route'] === 'Connexion') {
                 $this->front->connect();
-            } elseif ($this->route === 'afficher_Post') {
+            } elseif ($_GET['route'] === 'afficher_Post') {
                 $this->front->displayPostList($_POST['id_post_select_display']);
-            } elseif ($this->route === 'Valid_confirmation') {
+            } elseif ($_GET['route'] === 'Valid_confirmation') {
                 $this->control->deleteConfirm($_POST['id']);
-            } elseif ($this->route === 'confirm_commentary') {
+            } elseif ($_GET['route'] === 'confirm_commentary') {
                 if (!empty($_POST['com']) && !empty($_POST['name'])) {
                     $id_post = intval($_POST['id']);
                     $id = strip_tags(htmlspecialchars($id_post));
@@ -44,7 +42,7 @@ class Router
                 } else {
                     $this->front->erreurRegister();
                 }
-            } elseif ($this->route === 'connexion_accomplie') {
+            } elseif ($_GET['route'] === 'connexion_accomplie') {
                 if (isset($_POST['submit_connect'])) {
                     if (!empty($_POST['name_connect']) && !empty($_POST['password_connect'])) {
                         $this->control->controllerEmptyConnect($_POST['name_connect'],
@@ -53,7 +51,7 @@ class Router
                         $this->front->erreurRegister();
                     }
                 }
-            } elseif ($this->route === 'confirmation_update') {
+            } elseif ($_GET['route'] === 'confirmation_update') {
                 if (!empty($_POST['title']) & !empty($_POST['chapo'])
                     & !empty($_POST['author']) & !empty($_POST['contained'])) {
                     $this->front->confirmUpdate($_POST['chapo'], $_POST['title'], $_POST['contained'],
@@ -61,9 +59,9 @@ class Router
                 } else {
                     $this->front->emptyCaractere();
                 }
-            } elseif ($this->route === 'Annuler') {
+            } elseif ($_GET['route'] === 'Annuler') {
                 $this->front->false();
-            } elseif ($this->route === 'confirm_ajout_post') {
+            } elseif ($_GET['route'] === 'confirm_ajout_post') {
                 if (!empty($_POST['title']) & !empty($_POST['chapo'])
                     & !empty($_POST['author']) & !empty($_POST['contained'])) {
                     $chapo = strip_tags($_POST['chapo']);
@@ -75,7 +73,7 @@ class Router
                 } else {
                     $this->front->emptyCaractere();
                 }
-            } elseif ($this->route === 'confirm_update_post') {
+            } elseif ($_GET['route'] === 'confirm_update_post') {
                 if (!empty($_POST['title']) & !empty($_POST['chapo'])
                     & !empty($_POST['author']) & !empty($_POST['contained'])) {
                     $this->front->htmlTitleChapo($_POST['title'], $_POST['chapo'],
@@ -83,13 +81,13 @@ class Router
                 } else {
                     $this->front->emptyCaractere();
                 }
-            } elseif ($this->route === 'ajouterUtilisateurConfirmation') {
+            } elseif ($_GET['route'] === 'ajouterUtilisateurConfirmation') {
                 $this->control->adminTrueUser($_POST['id']);
-            } elseif ($this->route === 'supprimer-utilisateur') {
+            } elseif ($_GET['route'] === 'supprimer-utilisateur') {
                 $this->control->adminUserTrue($_POST['id']);
-            } elseif ($this->route === 'valid_commentary') {
+            } elseif ($_GET['route'] === 'valid_commentary') {
                 $this->front->controlConfirmCommentary($_POST['id_commentary']);
-            } elseif ($this->route === 'deconnexion') {
+            } elseif ($_GET['route'] === 'deconnexion') {
                 $this->control->logOut($_POST['deco']);
             } elseif (isset($_POST['submit_form'])) {
                 if (!empty($_POST['first_name']) &&
@@ -102,13 +100,13 @@ class Router
                 } else {
                     $this->front->emptyCaractere();
                 }
-            } elseif ($this->route === 'valid_commentary_true') {
+            } elseif ($_GET['route'] === 'valid_commentary_true') {
                 $this->control->adminTrueCommentary($_POST['id']);
-            } elseif ($this->route === 'Administration') {
+            } elseif ($_GET['route'] === 'Administration') {
                 $this->control->admin();
-            } elseif ($this->route === 'refus_commentary_true') {
+            } elseif ($_GET['route'] === 'refus_commentary_true') {
                 $this->control->deleteCommentary($_POST['id']);
-            } elseif ($this->route === 'enregistrement_bon') {
+            } elseif ($_GET['route'] === 'enregistrement_bon') {
                 if (isset($_POST['submit_register']) & !empty($_POST['mail']) &
                     !empty($_POST['name']) & !empty($_POST['pass_register']) & preg_match
                     ("#[a-zA-Z0-9-]@[a-zA-Z0-9-].+[a-zA-Z0-9-]#", $_POST['mail'])) {
