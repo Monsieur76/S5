@@ -1,5 +1,5 @@
 <?php
-$this->title = 'enregistrementBon';
+$this->title = 'enregistrement Bon';
 ?>
 <div class="container">
     <div class="row">

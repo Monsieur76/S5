@@ -1,5 +1,5 @@
 <?php
-
+$this->title = 'Message envoyé';
 ?>
 <div class="container">
     <div class="row">
@@ -7,5 +7,5 @@
             <h1>Message</h1>
         </div>
     </div>
-    Votre message a bien été envoyer.
+    Votre message a bien été envoyé.
 </div>

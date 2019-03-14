@@ -8,7 +8,7 @@ $this->title = 'Administration';
                 <h2 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
                             aria-expanded="true" aria-controls="collapseOne">
-                        Modification d'un Article
+                        Modification/Suppression d'un Article
                     </button>
                 </h2>
             </div>
@@ -22,7 +22,7 @@ $this->title = 'Administration';
                                 <th scope="col">Titre</th>
                                 <th scope="col">Chapo</th>
                                 <th scope="col">Date de l'article</th>
-                                <th scope="col">Modification</th>
+                                <th scope="col">Modification/Suppression</th>
                             </tr>
                             </thead>
                             <?php foreach ($data as $donne => $k) { ?>
@@ -36,6 +36,10 @@ $this->title = 'Administration';
                                                 data-target="#exampleModal<?= $k[0] ?>"
                                                 data-whatever="@mdo"><i
                                                     class="rotate fas fa-pen-square fa-2x text-light"></i></button>
+                                        <button type="button" id="inputDelete" data-toggle="modal"
+                                                data-target="#delete<?= $k[0] ?>"><i
+                                                    class="rotate far fa-times-circle fa-1x"></i>
+                                        </button>
                                         <div class="modal fade" id="exampleModal<?= $k[0] ?>" tabindex="-1"
                                              role="dialog"
                                              aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -49,7 +53,7 @@ $this->title = 'Administration';
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <form action="?route=confirm_update_post" method="post">
+                                                    <form action="?route=confirmation_modification_article" method="post">
                                                         <div class="modal-body">
                                                             <div class="form-group">
                                                                 <label for="recipient-name" style="color: black"
@@ -72,7 +76,7 @@ $this->title = 'Administration';
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="message-text" style="color: black"
-                                                                       class="col-form-label">Contenue de
+                                                                       class="col-form-label">Contenu de
                                                                     l'article</label>
                                                                 <textarea class="form-control" name="contained"
                                                                           id="message-text"><?= $k[3] ?></textarea>
@@ -89,6 +93,33 @@ $this->title = 'Administration';
                                                                     class="btn btn-primary fn_modify_modal"
                                                                     data-target="#confirm" data-toggle="modal"> Modifier
                                                             </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal fade" id="delete<?= $k[0] ?>" tabindex="-1" role="dialog"
+                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel" style="color: black">Suppression</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body" style="color: black">
+                                                        Ete vous sur de vouloir supprimer ?
+                                                    </div>
+                                                    <form action="?route=Validation_de_Suppression" method="post">
+                                                        <div class="modal-footer">
+                                                            <input type="hidden" name="id" value="<?= $k[0] ?>"/>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">
+                                                                Fermer
+                                                            </button>
+                                                            <button type="submit" class="btn btn-primary">Supprimer</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -114,36 +145,32 @@ $this->title = 'Administration';
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
-                    <form action="?route=confirm_ajout_post" method="post">
-                        <div class="form-group row" style="margin-top: 0px">
-                            <div class="form-group row col-lg-12" style="margin-top: 0px">
-                                <label for="inputname4" class="col-lg-1 col-form-label ">Titre</label>
-                                <div class="col-lg-7">
-                                <textarea id="inputname4" name="title" placeholder='Terminus'
-                                          class="form-control text-center"></textarea>
+                    <form action="?route=Confirmation_Ajout_Article" method="post">
+                        <div class="form-row">
+                            <div class="form-group col-lg-6" style="margin-top: 10px;text-align: left">
+                                <label for="inputname4"><strong>Titre</strong></label>
+                                <div class="">
+                                <input id="inputname4" type="text" name="title" placeholder='Terminus'
+                                          class="form-control text-center">
                                 </div>
                             </div>
-                            <div class="form-group row col-lg-12" style="margin-top: 10px">
-                                <label for="inputname1" class="col-lg-1 col-form-label">Autheur</label>
-                                <div class="col-lg-7">
+                            <div class="form-group col-lg-6" style="margin-top: 10px;text-align: left">
+                                <label for="inputname1"><strong>Autheur</strong></label>
+                                <div class="">
                                     <input type="text" id="inputname1" name="author" placeholder='Alix Lerman Enriquez'
                                            class="form-control text-center"/>
                                 </div>
                             </div>
-                            <div class="form-group row col-lg-12" style="margin-top: 10px">
-                                <label for="inputname2" class="col-lg-1 col-form-label">chapo</label>
-                                <div class="col-lg-7">
-                                <textarea id="inputname2" name="chapo" placeholder='J’ai pris un train en sens inverse.
-La voie était semée de roses
-et de ronces blessées.
-Les rails recouverts
-de charbons bleus métalliques.'
+                            <div class="form-group row col-lg-12" style="margin-top: 10px;text-align: left">
+                                <label for="inputname2" class="col-lg-12 col-form-label"><strong>Chapo</strong></label>
+                                <div class="col-lg-12">
+                                <textarea id="inputname2" name="chapo" placeholder='J’ai pris un train en sens inverse. La voie était semée de roses et de ronces blessées. Les rails recouverts de charbons bleus métalliques.'
                                           class="form-control text-center"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group row col-lg-12" style="margin-top: 10px">
-                                <label for="inputname3" class="col-lg-2 col-form-label">Contenu</label>
-                                <div class="col-lg-10">
+                            <div class="form-group row col-lg-12" style="margin-top: 10px;text-align: left">
+                                <label for="inputname3" class="col-lg-12 col-form-label"><strong>Contenu</strong></label>
+                                <div class="col-lg-12">
                         <textarea name="contained" id="inputname3" class="form-control text-center"
                                   placeholder="J’ai pris un train en sens inverse.La voie était semée de roseset de ronces blessées.Les rails recouvertsde charbons bleus métalliques.Le ciel lourd de promessesnon tenues, de rêves déchus, diffus,de désillusions tues, de séparations.Et sous la désolation de ce jour gris,je regardais, égarée, mon corpsscarifié de silence et de nuit.Le trajet était long,sans précise destination,comme dans un train fantômeeffaré de solitude crue, atoneau parfum déjà suride cendre et de suie.Au terminus, j’ai respiréun arôme de mort et de pluie."></textarea>
                                 </div>
@@ -165,7 +192,7 @@ de charbons bleus métalliques.'
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            Ete vous sur de vouloir enregistrer ?
+                                            Ete vous sur de vouloir l'enregistrer ?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -181,77 +208,7 @@ de charbons bleus métalliques.'
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header" id="headingThree">
-                <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Supprimer un article
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-sm text-light">
-                            <thead>
-                            <tr>
-                                <th scope="col">Titre</th>
-                                <th scope="col">Chapo</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Autheur</th>
-                                <th scope="col">Supprimer</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach ($dataDelete as $donne => $k) { ?>
-                                <tr>
-                                    <th><?= $k[0] ?></th>
-                                    <th><?= $k[1] ?></th>
-                                    <th><?= $k[4] ?></th>
-                                    <th><?= $k[3] ?></th>
-                                    <th>
-                                        <button type="button" id="inputDelete" data-toggle="modal"
-                                                data-target="#delete<?= $k[2] ?>"><i
-                                                    class="rotate far fa-times-circle fa-1x"></i>
-                                        </button>
-                                    </th>
-                                    <div class="modal fade" id="delete<?= $k[2] ?>" tabindex="-1" role="dialog"
-                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Ete vous sur de vouloir supprimer ?
-                                                </div>
-                                                <form action="?route=Valid_confirmation" method="post">
-                                                    <div class="modal-footer">
-                                                        <input type="hidden" name="id" value="<?= $k[2] ?>"/>
-                                                        <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">
-                                                            Fermer
-                                                        </button>
-                                                        <button type="submit" class="btn btn-primary">Supprimer</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </tr>
-                            <?php } ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="card">
             <div class="card-header" id="heading4">
                 <h2 class="mb-0">
@@ -311,7 +268,7 @@ de charbons bleus métalliques.'
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel"
                                                             style="color: black">
-                                                            Suppression</h5>
+                                                            Validation commentaire</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
@@ -320,7 +277,7 @@ de charbons bleus métalliques.'
                                                     <div class="modal-body" style="color: black">
                                                         Ete vous sur de vouloir Valider le Commentaire?
                                                     </div>
-                                                    <form action="?route=valid_commentary_true" method="post">
+                                                    <form action="?route=Validation_de_commentaire" method="post">
                                                         <div class="modal-footer">
                                                             <input type="hidden" name="id" value="<?= $k[0] ?>"/>
                                                             <button type="button" class="btn btn-secondary"
@@ -351,7 +308,7 @@ de charbons bleus métalliques.'
                                                     <div class="modal-body" style="color: black">
                                                         Ete vous sur de vouloir Supprimer le Commentaire ?
                                                     </div>
-                                                    <form action="?route=refus_commentary_true" method="post">
+                                                    <form action="?route=Refuser_Commentaire" method="post">
                                                         <div class="modal-footer">
                                                             <input type="hidden" name="id" value="<?= $k[0] ?>"/>
                                                             <button type="button" class="btn btn-secondary"
@@ -417,16 +374,16 @@ de charbons bleus métalliques.'
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel"
                                                             style="color: black">
-                                                            Suppression</h5>
+                                                            Confirmation</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body" style="color: black">
-                                                        Ete vous sur de vouloir passer l'utilisateur en Admin ?
+                                                        Ete vous sur de vouloir passer l'utilisateur en Administrateur ?
                                                     </div>
-                                                    <form action="?route=ajouterUtilisateurConfirmation" method="post">
+                                                    <form action="?route=Confirmation_Ajout_Utilisateur" method="post">
                                                         <div class="modal-footer">
                                                             <input type="hidden" name="id" value="<?= $k[0] ?>"/>
                                                             <button type="button" class="btn btn-secondary"
@@ -458,7 +415,7 @@ de charbons bleus métalliques.'
                                                     <div class="modal-body" style="color: black">
                                                         Ete vous sur de vouloir supprimer l'utilisateur ?
                                                     </div>
-                                                    <form action="?route=supprimer-utilisateur" method="post">
+                                                    <form action="?route=supprimer_utilisateur" method="post">
                                                         <div class="modal-footer">
                                                             <input type="hidden" name="id" value="<?= $k[0] ?>"/>
                                                             <button type="button" class="btn btn-secondary"

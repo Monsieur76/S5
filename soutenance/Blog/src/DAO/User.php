@@ -47,7 +47,7 @@ class User
 
     public function adminWait()
     {
-        $sql = "SELECT id,pseudo,pass,mail,DATE_FORMAT(date_user,'%d/%m/%Y %Hh%imin%ss')AS dateUser 
+        $sql = "SELECT id,pseudo,pass,mail,DATE_FORMAT(date_user,'%d/%m/%Y %H:%i:%s')AS dateUser 
                 FROM admin WHERE register=0 ORDER BY date_user DESC ";
         $data = $this->db->prepare($sql);
         $data->execute();

@@ -16,14 +16,17 @@ namespace App\Template;
     <meta charset="utf-8"/>
 </head>
 <body>
+
 <header>
     <div id="menu">
         <?= isset($menu) ? $menu : '' ?>
     </div>
 </header>
+<div class="container">
     <div id="content">
         <?= isset($content) ? $content : '' ?>
     </div>
+</div>
 <footer>
     <div id="footer">
         <?= isset($footer) ? $footer : '' ?>

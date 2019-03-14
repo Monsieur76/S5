@@ -1,3 +1,6 @@
+<?php
+$this->title = 'Erreur404';
+?>
 <div class="container">
     <div class="row">
         <div class="text-center">

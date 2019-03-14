@@ -8,11 +8,6 @@
 .input, .form1 {
     text-align: center;
 }
-
-header {
-    background-image: url(../img/system.png);
-}
-
 @keyframes myrotate {
     0% {
         transform: rotate(0deg);
@@ -78,4 +73,49 @@ header {
 
 .btnColor {
     background-color: black;
+}
+body
+{
+    background-image: url("../../Public/img/back3.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+     font-family: "Merriweather", Georgia, serif;
+}
+.container
+{
+    background-color: beige;
+    margin-top: 250px;
+    margin-bottom: 80px;
+    background-color: rgba(255, 255, 255, 1);
+}
+footer
+{
+    margin-top: 50px;
+    margin-bottom: 150px;
+}
+.contact
+{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.slide
+{
+    background-color: rgba(255, 255, 255, 0);
+}
+.footer,#link,#menu
+{
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    color: antiquewhite;
+    font-size: x-large;
+    text-decoration: none;
+    font-style: oblique;
+}
+#logo
+{
+    list-style-type: none;
+    margin-top: 70px;
+}
+#logocolor
+{
+    color: #9c743f;
 }

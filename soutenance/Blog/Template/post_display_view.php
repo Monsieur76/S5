@@ -1,13 +1,16 @@
 <?php
-$this->title = 'aficher';
+$this->title = 'Article';
 ?>
 <div class="container">
     <div class="row">
         <h1> L'article </h1>
     </div>
     <div class="" style="word-wrap: break-word;"><?php
-        echo '<br><strong style="font-size:24px">' . $post['title'] . '<br></strong>'
-            . $post['date_post'] . '<br>' . $post['contained'] . '<br>' . $post['author'] . '<br>';
+        echo '<br><strong style="font-size:24px">
+<div class="jumbotron">
+  <h5 class="display-4" style="text-decoration: underline">' . $post['title'] . '</h5><br></strong><br>
+  <p class="lead">' . $post['contained'] . '</p>
+  <hr class="my-4"><p><i>Par ' . $post['author'] . 'le ' . $post['date_post'] . '</i></p><br>';
         ?>
     </div>
     <div class="row justify-content-center">
@@ -20,7 +23,7 @@ $this->title = 'aficher';
              aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <form action="?route=confirm_commentary" method="post">
+                    <form action="?route=Validation_de_Commentaire" method="post">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Nouveau commentaire</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -40,7 +43,7 @@ $this->title = 'aficher';
                         <div class="modal-footer">
                             <input type="hidden" value="<?= $post['id'] ?>" name="id">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                            <button type="submit" id="confirm" class="btn btn-primary fn_modal_addCom">Confirmer
+                            <button type="submit" id="confirm" class="btn btn-primary fn_modify_modal">Confirmer
                             </button>
                         </div>
                     </form>
@@ -48,23 +51,27 @@ $this->title = 'aficher';
             </div>
         </div>
         <div class="col-lg-3">
-            <a type='submit' name='back' href="?route=liste_des_postes" class="btnColor btn-dark form-control"
+            <a type='submit' name='back' href="?route=liste_des_Articles" class="btnColor btn-dark form-control"
             >Retour a liste des articles</a>
         </div>
     </div>
     <div class="text-center" style="margin-top: 50px;margin-bottom: 30px">
-        <div class="col-lg-12">
-            <h2>Commentaire</h2>
+        <div class="col-lg-12" style="text-align: left;margin-top: 80px">
+            <h2 style="text-decoration: underline;">Commentaire</h2>
         </div>
         <div class="row">
-            <div class="col-lg-12" style="margin-bottom: 50px;overflow-wrap: break-word">
+            <div class="col-lg-12" style="margin-bottom: 50px;overflow-wrap: break-word;margin-top: 80px">
                 <?php foreach ($commentary as $donne => $k) { ?>
-                    <strong><?= $k[1] ?></strong><br>
-                    <?= $k[2] ?><br>
-                    <div style="margin-bottom: 50px"> <?= $k[0] ?><br>
+                    <div class="col-lg-12" style="text-align: left;">
+                        <strong>De : <?= $k[1] ?></strong><br>
+                        Le : <?= $k[2] ?><br>
+                        <div style="margin-bottom: 50px;margin-top: 30px;">
+                            <?= $k[0] ?>
+                        </div>
                     </div>
                 <?php } ?>
             </div>
         </div>
     </div>
+</div>
 </div>

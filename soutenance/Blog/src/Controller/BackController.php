@@ -6,7 +6,7 @@ use App\src\DAO\Commentary;
 use App\src\DAO\Post;
 use App\src\DAO\User;
 use App\src\Model\View;
-use \App\src\Model\Token;
+use App\src\Model\Token;
 
 class BackController
 {
@@ -15,7 +15,7 @@ class BackController
     private $user;
     private $commentary;
 
-    function __construct()
+    public function __construct()
     {
         $this->user = new User;
         $this->view = new View;

@@ -1,4 +1,5 @@
 <?php
+$this->title = 'Email déja présente';
 ?>
 <div class="container">
     <div class="row justify-content-center align-items-center" style="margin-top: 20px;">

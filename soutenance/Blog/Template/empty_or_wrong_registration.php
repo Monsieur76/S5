@@ -1,5 +1,5 @@
 <?php
-$this->title = 'empty_or_wrong_registration'; ?>
+$this->title = 'Erreur'; ?>
 <div class="container">
     <div class="row justify-content-center align-items-center" style="margin-top: 20px;">
 
@@ -10,7 +10,7 @@ $this->title = 'empty_or_wrong_registration'; ?>
     </div>
     <div class="row">
         <div class="col-lg-12" style="margin-bottom: 50px">
-            Une erreur a été faite où vous n'avez pas remplis tout les champs veillez vérifier .
+            Une erreur a été faite où vous n'avez pas remplis les champs veuillez vérifier .
         </div>
     </div>
 </div>

@@ -28,7 +28,7 @@ class Post
 
     public function deletePost()
     {
-        $sql = "SELECT title,chapo,id,author,DATE_FORMAT(date_post,'%d/%m/%Y %Hh%imin%ss')AS datePost FROM post 
+        $sql = "SELECT title,chapo,id,author,DATE_FORMAT(date_post,'%d/%m/%Y %H:%i:%s')AS datePost FROM post 
                 ORDER BY date_post DESC ";
         $data = $this->db->prepare($sql);
         $data->execute();
@@ -48,7 +48,7 @@ class Post
 
     public function postSelect()
     {
-        $sql = "SELECT id,title,chapo,contained,author,DATE_FORMAT(date_post,'%d/%m/%Y %Hh%imin%ss')
+        $sql = "SELECT id,title,chapo,contained,author,DATE_FORMAT(date_post,'%d/%m/%Y %H:%i:%s')
                 AS datePost FROM post ORDER BY date_post DESC ";
         $data = $this->db->prepare($sql);
         $data->execute();
@@ -57,7 +57,7 @@ class Post
 
     public function postSelectDisplay()
     {
-        $sql = "SELECT  title,chapo,id,DATE_FORMAT(date_post,'%d/%m/%Y %Hh%imin%ss')AS datePost
+        $sql = "SELECT  title,chapo,id,DATE_FORMAT(date_post,'%d/%m/%Y %H:%i:%s')AS datePost
                 FROM post ORDER BY date_post DESC ";
         $data = $this->db->prepare($sql);
         $data->execute();
@@ -66,7 +66,7 @@ class Post
 
     public function displayPost($id)
     {
-        $sql = "SELECT id,contained,title,chapo,author,DATE_FORMAT(date_post,'%d/%m/%Y %Hh%imin%ss')AS date_post
+        $sql = "SELECT id,contained,title,chapo,author,DATE_FORMAT(date_post,'%d/%m/%Y %H:%i:%s')AS date_post
                 FROM post WHERE id = ?";
         $data = $this->db->prepare($sql);
         $data->execute([$id]);

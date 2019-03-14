@@ -2,21 +2,17 @@
 $control = new \App\src\Controller\BackController;
 if ($control->isUserConnected() === true) {
     ?>
-    <div class="border-top border-dark  col-lg-12">
+    <div class=" col-lg-12">
         <div class="row">
             <div class="col-sm-2">
-                <div class="form-group">
-                    <a type="button" href='?route=Connexion'
-                       class="btnColor btn-dark form-control">
+                    <a  href='?route=Connexion'
+                       class="footer" id="link">
                         Déconnexion </a>
-                </div>
             </div>
             <div class="col-sm-2">
-                <div class="form-group">
-                    <a type="button" href='?route=Administration'
-                       class="btnColor btn-dark form-control">
+                    <a href='?route=Administration'
+                       class="footer" id="link">
                         Administration </a>
-                </div>
             </div>
         </div>
     </div>
@@ -24,14 +20,12 @@ if ($control->isUserConnected() === true) {
     <?php
 } else {
     ?>
-    <div class="border-top border-dark col-lg-12">
+    <div class="col-lg-12">
         <div class="row">
             <div class="col-sm-2">
-                <div class="form-groupe">
-                    <a type="button" href='?route=Connexion'
-                       class="btnColor btn-dark form-control">
+                    <a href='?route=Connexion'
+                       class="footer" id="link">
                         Administration Blog </a>
-                </div>
             </div>
         </div>
     </div>

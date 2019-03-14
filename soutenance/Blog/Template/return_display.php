@@ -1,5 +1,5 @@
 <?php
-$this->title = 'liste poste';
+$this->title = 'confirmation';
 ?>
 <div class="container">
     <div class="row">
@@ -11,7 +11,7 @@ $this->title = 'liste poste';
         <div class="text-center" style="margin-bottom: 50px">
             Votre demande a été prise en compte.
             <div class="form-group" style="margin-top: 30px">
-                <a type="button" class="btnColor btn-dark form-control" href="?route=liste_des_postes">Retour a
+                <a type="button" class="btnColor btn-dark form-control" href="?route=liste_des_Articles">Retour a
                     la liste des articles</a>
             </div>
         </div>

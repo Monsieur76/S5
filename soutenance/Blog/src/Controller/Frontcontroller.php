@@ -15,7 +15,7 @@ class FrontController
     private $control;
     private $user;
 
-    function __construct()
+    public function __construct()
     {
         $this->user = new User;
         $this->post = new Post;
@@ -37,12 +37,12 @@ class FrontController
     public function displayPost()
     {
         $post = $this->post->postSelectDisplay();
-        $this->view->render('display_post_liste_view', ['post' => $post]);
+        $this->view->render('display_post_list_view', ['post' => $post]);
     }
 
     public function connect()
     {
-        $this->view->render('connect_resgister_view');
+        $this->view->render('connect_register_view');
     }
 
     public function displayPostList($id)
@@ -70,12 +70,6 @@ class FrontController
     public function emptyCaractere()
     {
         $this->view->render('empty_or_wrong_registration');
-    }
-
-    public function confirmUpdate($chapo, $title, $contained, $author, $id_post)
-    {
-        $this->view->render('confirm_update', ['title' => $title,
-            'contained' => $contained, 'author' => $author, 'id_post' => $id_post, 'chapo' => $chapo]);
     }
 
     public function false()
@@ -133,11 +127,6 @@ class FrontController
     public function adminUserTrue()
     {
         $this->view->render('true');
-    }
-
-    public function controlConfirmCommentary($id)
-    {
-        $this->view->render('valid_admin_commentary', ['id' => $id]);
     }
 
     public function erreurRegister()

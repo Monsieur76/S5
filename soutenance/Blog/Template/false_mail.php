@@ -1,5 +1,5 @@
 <?php
-$this->title = 'false_mail'; ?>
+$this->title = 'Mauvaise adresse Mail'; ?>
 <div class="container">
     <div class="row justify-content-center align-items-center" style="margin-top: 20px;">
 

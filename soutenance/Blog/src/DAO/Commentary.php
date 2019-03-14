@@ -21,7 +21,7 @@ class Commentary
     public function adminValidCom()
     {
         $data = $this->db->prepare('SELECT c.id , c.commentary , 
-        c.register_valid ,p.title,DATE_FORMAT(c.date_com,\'%d/%m/%Y %Hh%imin%ss\')AS datePost,
+        c.register_valid ,p.title,DATE_FORMAT(c.date_com,\'%d/%m/%Y %H:%i:%s\')AS datePost,
         c.name FROM commentary AS c INNER JOIN post AS p
         ON c.id_post = p.id WHERE c.register_valid = 0 ORDER BY date_com DESC');
         $data->execute();
@@ -45,7 +45,7 @@ class Commentary
 
     public function commentary($id)
     {
-        $sql = "SELECT c.commentary,name,DATE_FORMAT(c.date_com ,'%d/%m/%Y %Hh%imin%ss')AS date_com FROM post AS p INNER JOIN 
+        $sql = "SELECT c.commentary,name,DATE_FORMAT(c.date_com ,'%d/%m/%Y %H:%i:%s')AS date_com FROM post AS p INNER JOIN 
             commentary AS c ON p.id = c.id_post WHERE p.id =? 
             AND c.register_valid = 1 ORDER BY date_com DESC";
         $data = $this->db->prepare($sql);

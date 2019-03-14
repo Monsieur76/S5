@@ -12,7 +12,7 @@ class Database
     private static $sql = 'mysql:host';
     private static $host;
     private static $dbn = 'dbname';
-    public static $name;
+    private static $name;
     private static $charset = 'charset';
     private static $namecharset;
     private static $username;

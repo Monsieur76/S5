@@ -1,4 +1,5 @@
 <?php
+$this->title = 'Déconnexion Réussie';
 ?>
 <div class="container">
     <div class="row">
@@ -8,7 +9,7 @@
     </div>
     <div class="row">
         <div class="text-center" style="margin-bottom: 50px">
-            Vous ête deconnecter.
+            Vous ête deconnecté.
         </div>
     </div>
 </div>
