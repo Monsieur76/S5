@@ -2,7 +2,7 @@
 $this->title = 'Accueil'; ?>
 <div class="slide container-fluid">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12" style="margin-top: 50px">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -11,13 +11,13 @@ $this->title = 'Accueil'; ?>
                 </ol>
                 <div class="carousel-inner active">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="../Public/img/photo2.png" alt="First slide">
+                        <img class="d-block w-100" src="../Public/img/back1.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item ">
-                        <img class="d-block w-100" src="../Public/img/photo1.png" alt="Second slide">
+                        <img class="d-block w-100" src="../Public/img/back2.jpg" alt="Second slide">
                     </div>
                     <div class="carousel-item ">
-                        <img class="d-block w-100" src="../Public/img/photo3.png" alt="Third slide">
+                        <img class="d-block w-100" src="../Public/img/back4.jpg" alt="Third slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -43,7 +43,7 @@ $this->title = 'Accueil'; ?>
     <div class="card col-lg-6" style="width: 10rem;
                             margin-bottom: 0px;margin-top: 155px">
         <div class="card-body contact">
-            <h1 class="card-title">Contact</h1>
+            <h1 class="card-title" style="text-decoration: underline;">Contact</h1>
             <div class="col-lg-12">
                 <form action='?route=message' method='POST'>
                     <div class="form-group row col-lg-12">
@@ -90,7 +90,7 @@ $this->title = 'Accueil'; ?>
     <div class="card col-lg-6" style="margin-top: 155px">
     <div class="card-body contact col-lg-12" style="margin-top: 0px;">
     <div class="col-lg-12" style="margin-top: px">
-        <h1 class="card-title">Suivez-Moi</h1>
+        <h1 class="card-title" style="text-decoration: underline;">Suivez-Moi</h1>
         <ul class="col-lg-12" style="margin-top: 0px; margin-bottom: 0px">
             <div class="col-lg-12" style="display: flex">
                 <li id="logo" class="rotate col-lg-6">
