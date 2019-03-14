@@ -151,7 +151,7 @@ $this->title = 'Administration';
                                 <label for="inputname4"><strong>Titre</strong></label>
                                 <div class="">
                                 <input id="inputname4" type="text" name="title" placeholder='Terminus'
-                                          class="form-control text-center">
+                                          class="form-control text-center" >
                                 </div>
                             </div>
                             <div class="form-group col-lg-6" style="margin-top: 10px;text-align: left">

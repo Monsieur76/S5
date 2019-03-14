@@ -24,10 +24,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Template/post_display_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1053">
+            <state relative-caret-position="-972">
               <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
               <folding>
                 <element signature="n#style#0;n#strong#0;n#!!top" expanded="true" />
@@ -41,6 +41,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-619">
               <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Template/menu.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Template/backend.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="621">
+              <caret line="164" column="38" selection-start-line="164" selection-start-column="38" selection-end-line="164" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -123,7 +141,6 @@
         <option value="$PROJECT_DIR$/src/Controller/FrontController.php" />
         <option value="$PROJECT_DIR$/Template/footer.php" />
         <option value="$PROJECT_DIR$/Template/home.php" />
-        <option value="$PROJECT_DIR$/Template/backend.php" />
         <option value="$PROJECT_DIR$/Template/display_post_list_view.php" />
         <option value="$PROJECT_DIR$/Template/connect_register_view.php" />
         <option value="$PROJECT_DIR$/Template/connexion_true.php" />
@@ -139,10 +156,11 @@
         <option value="$PROJECT_DIR$/src/DAO/Post.php" />
         <option value="$PROJECT_DIR$/src/DAO/Commentary.php" />
         <option value="$PROJECT_DIR$/src/DAO/User.php" />
-        <option value="$PROJECT_DIR$/Template/menu.php" />
         <option value="$PROJECT_DIR$/Public/css/view.css" />
         <option value="$PROJECT_DIR$/Template/erreur_404.php" />
         <option value="$PROJECT_DIR$/Template/index_view.php" />
+        <option value="$PROJECT_DIR$/Template/menu.php" />
+        <option value="$PROJECT_DIR$/Template/backend.php" />
       </list>
     </option>
   </component>
@@ -282,12 +300,12 @@
       <workItem from="1552291933849" duration="87000" />
       <workItem from="1552292252804" duration="1153000" />
       <workItem from="1552378362124" duration="23986000" />
-      <workItem from="1552551687296" duration="14326000" />
+      <workItem from="1552551687296" duration="15722000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="354875000" />
+    <option name="totallyTimeSpent" value="356271000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -465,13 +483,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Template/message.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Template/registration_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -511,13 +522,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
           <caret line="30" column="80" selection-start-line="30" selection-start-column="80" selection-end-line="30" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Template/backend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="46" column="75" lean-forward="true" selection-start-line="46" selection-start-column="75" selection-end-line="46" selection-end-column="75" />
         </state>
       </provider>
     </entry>
@@ -564,13 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Template/menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
@@ -590,11 +587,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Template/post_display_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1053">
+        <state relative-caret-position="-972">
           <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#strong#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/backend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="164" column="38" selection-start-line="164" selection-start-column="38" selection-end-line="164" selection-end-column="38" />
         </state>
       </provider>
     </entry>

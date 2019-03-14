@@ -12,7 +12,7 @@ if ($control->isUserConnected()) {
                 <div class="col-sm-12">
                     <div class="form-group">
                         <input type='submit' name='deconnec' value='Déconnexion'
-                               class="btnColor text-light form-control"/>
+                               class="btnColor text-light btn-dark  form-control"/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -45,7 +45,7 @@ if ($control->isUserConnected()) {
                                        placeholder='azerty' class="form-control text-center"/>
                             </div>
                         </div>
-                        <input type='submit' class="btnColor text-light form-control" style="margin-top: 30px;"
+                        <input type='submit' class="btnColor btn-dark text-light form-control" style="margin-top: 30px;"
                                name='submit_connect' value='Envoyer'/>
                     </form>
                 </div>
