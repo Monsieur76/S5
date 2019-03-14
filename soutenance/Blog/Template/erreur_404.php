@@ -7,3 +7,4 @@ $this->title = 'Erreur404';
             <h1>Erreur 404</h1>
         </div>
     </div>
+</div>
