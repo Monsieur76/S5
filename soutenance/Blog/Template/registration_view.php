@@ -1,10 +1,24 @@
 <?php
 $this->title = 'Enregistrement'; ?>
 <div class="container">
+    <?php if (isset($_POST['submit_register']) & $bool === true) { ?>
+        <div class="alert alert-success" role="alert">
+            Votre inscription a été accompli , attendez la confirmation d'un administrateur.
+        </div>
+    <?php } elseif (isset($_POST['submit_register']) & $bool === false) { ?>
+        <div class="alert alert-danger" role="alert">
+            Un champ est vide où vous vous êtes trompé.
+        </div>
+    <?php } elseif (isset($_POST['submit_register']) & $bool === null) { ?>
+        <div class="alert alert-warning" role="alert">
+            Attention cette e-mail est déjà utilisé.
+        </div>
+    <?php } ?>
     <div class="row">
         <div class="card col-lg-5" style="width: 18rem;align-items: center;
                             margin-bottom: 70px;margin-top: 70px">
-            <br><h1 style="text-decoration: underline;">Inscription</h1>
+            <br>
+            <h1 style="text-decoration: underline;">Inscription</h1>
             <div class="card-body">
                 <form action="?route=enregistrement_bon" method='POST'>
                     <div class="form-group row">
@@ -28,8 +42,9 @@ $this->title = 'Enregistrement'; ?>
                                    class="form-control text-center"/>
                         </div>
                     </div>
-                    <input type='submit' class="btnColor btn-dark form-control"
-                           name='submit_register' value='Envoyer' style="margin-top: 50px"/>
+                    <button type='submit' class="btnColor btn-dark form-control"
+                            name='submit_register' style="margin-top: 50px">Envoyer
+                    </button>
                 </form>
             </div>
         </div>

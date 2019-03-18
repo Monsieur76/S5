@@ -2,8 +2,17 @@
 $this->title = 'Article';
 ?>
 <div class="container">
+    <?php if (isset($_POST['com']) & $bool === true) { ?>
+        <div class="alert alert-success" role="alert">
+            Le commentaire a bien été ajouté , attender la validation d'un administrateur.
+        </div>
+    <?php } elseif (isset($_POST['com']) & $bool === false) { ?>
+        <div class="alert alert-danger" role="alert">
+            Un champ est vide.
+        </div>
+    <?php } ?>
     <div class="row">
-        <h1> L'article </h1>
+        <h1 style="text-decoration: underline;margin-top: 30px"> L'article </h1>
     </div>
     <div class="" style="word-wrap: break-word;"><?php
         echo '<br><strong style="font-size:24px">
@@ -50,28 +59,31 @@ $this->title = 'Article';
                 </div>
             </div>
         </div>
-        <div class="col-lg-3">
-            <a type='submit' name='back' href="?route=liste_des_Articles" class="btnColor btn-dark form-control"
-            >Retour a liste des articles</a>
-        </div>
-    </div>
-    <div class="text-center" style="margin-top: 50px;margin-bottom: 30px">
-        <div class="col-lg-12" style="text-align: left;margin-top: 80px">
-            <h2 style="text-decoration: underline;">Commentaire</h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-12" style="margin-bottom: 50px;overflow-wrap: break-word;margin-top: 80px">
-                <?php foreach ($commentary as $donne => $k) { ?>
-                    <div class="col-lg-12" style="text-align: left;">
-                        <strong>De : <?= $k[1] ?></strong><br>
-                        Le : <?= $k[2] ?><br>
-                        <div style="margin-bottom: 50px;margin-top: 30px;">
-                            <?= $k[0] ?>
-                        </div>
-                    </div>
-                <?php } ?>
+        <form action="?route=liste_des_Articles" method="post">
+            <div class="col-lg-12">
+                <button type='submit' class="btnColor btn-dark form-control"
+                >Retour a liste des articles
+                </button>
             </div>
+    </div>
+</div>
+<div class="text-center" style="margin-top: 50px;margin-bottom: 30px">
+    <div class="col-lg-12" style="text-align: left;margin-top: 80px">
+        <h2 style="text-decoration: underline;">Commentaire</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-12" style="margin-bottom: 50px;overflow-wrap: break-word;margin-top: 80px">
+            <?php foreach ($commentary as $donne => $k) { ?>
+                <div class="col-lg-12" style="text-align: left;border-top: #9c743f double;">
+                    <strong>De : <?= $k[1] ?></strong><br>
+                    Le : <?= $k[2] ?><br>
+                    <div style="margin-bottom: 50px;margin-top: 30px;">
+                        <?= $k[0] ?>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
     </div>
+</div>
 </div>
 </div>

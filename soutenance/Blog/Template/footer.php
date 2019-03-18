@@ -5,14 +5,14 @@ if ($control->isUserConnected() === true) {
     <div class=" col-lg-12">
         <div class="row">
             <div class="col-sm-2">
-                    <a  href='?route=Connexion'
-                       class="footer" id="link">
-                        Déconnexion </a>
+                <a href='?route=Connexion'
+                   class="footer" id="link">
+                    <i class="fas fa-door-open"></i> </a>
             </div>
             <div class="col-sm-2">
-                    <a href='?route=Administration'
-                       class="footer" id="link">
-                        Administration </a>
+                <a href='?route=Administration'
+                   class="footer" id="link">
+                    <i class="fas fa-toolbox"></i> </a>
             </div>
         </div>
     </div>
@@ -23,9 +23,9 @@ if ($control->isUserConnected() === true) {
     <div class="col-lg-12">
         <div class="row">
             <div class="col-sm-2">
-                    <a href='?route=Connexion'
-                       class="footer" id="link">
-                        Administration Blog </a>
+                <a href='?route=Connexion'
+                   class="footer" id="link">
+                    <i class="fas fa-door-open"></i> </a>
             </div>
         </div>
     </div>

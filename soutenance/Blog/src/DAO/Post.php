@@ -73,7 +73,7 @@ class Post
         return $data;
     }
 
-    public function updateUser($title, $chapo, $contained, $author, $post)
+    public function updatePost($title, $chapo, $contained, $author, $post)
     {
         try {
             $update = "UPDATE post SET title = ? , chapo = ?, contained = ? , author = ? ,

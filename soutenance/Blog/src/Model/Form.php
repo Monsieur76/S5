@@ -22,18 +22,22 @@ class Form
                 $this->recipient = $this->myConfig['SendMail']['mailSend'];
                 extract($_POST);
                 if (filter_var($sender, FILTER_VALIDATE_EMAIL)) {
-                    try {
-                        mail($this->recipient, $name, $contained, $sender);
-                        $this->front->adminUserTrue();
-                    } catch (Exception $e) {
-                        return $this->front->adminUserTrue();
-                    }
+                        if (mail($this->recipient, $name, $contained, $sender)){
+                        $bool = true;
+                        return $this->front->home($bool);}
+                        else{
+                            $bool = 1;
+                            $this->front->home($bool);
+                            
+                        }
                 } else {
-                    $this->view->render('false_mail');
+                    $bool = null;
+                    $this->front->home($bool);
                 }
             }
         } catch (Exception $e) {
-            $this->front->emptyCaractere();
+            $bool = false;
+            $this->front->home($bool);
         }
     }
 }

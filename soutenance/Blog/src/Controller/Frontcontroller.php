@@ -26,12 +26,13 @@ class FrontController
 
     public function registration()
     {
-        $this->view->render('registration_view');
+        $bool = false;
+        $this->view->render('registration_view', ['bool' => $bool]);
     }
 
-    public function home()
+    public function home($bool)
     {
-        $this->view->render('index_view');
+        $this->view->render('index_view', ['bool' => $bool]);
     }
 
     public function displayPost()
@@ -42,7 +43,8 @@ class FrontController
 
     public function connect()
     {
-        $this->view->render('connect_register_view');
+        $bool = false;
+        $this->view->render('connect_register_view', ['bool' => $bool]);
     }
 
     public function displayPostList($id)
@@ -50,8 +52,9 @@ class FrontController
         $commentary = $this->commentary->commentary($id);
         $post = $this->post->displayPost($id)->fetch();
         if ($post > 0) {
+            $bool = false;
             return $this->view->render('post_display_view', ['post' => $post,
-                'commentary' => $commentary, 'id' => $id]);
+                'commentary' => $commentary, 'id' => $id, 'bool' => $bool]);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -59,22 +62,16 @@ class FrontController
 
     public function addConfirmCommentary($id, $com, $name)
     {
-        if ($id > 0 & !empty($com)) {
+        if ($id > 0 & !empty($com) & (strlen($name) <= 500) & (strlen($com) <= 10000)) {
             $this->commentary->insertCom($id, $com, $name);
-            return $this->view->render('return_display');
+            $bool = true;
+            $commentary = $this->commentary->commentary($id);
+            $post = $this->post->displayPost($id)->fetch();
+            return $this->view->render('post_display_view', ['post' => $post,
+                'commentary' => $commentary, 'id' => $id, 'bool' => $bool]);
         } else {
             return $this->view->render('erreur_404');
         }
-    }
-
-    public function emptyCaractere()
-    {
-        $this->view->render('empty_or_wrong_registration');
-    }
-
-    public function false()
-    {
-        $this->view->render('false');
     }
 
     public function controllerEmptyRegister($name, $pass, $mail)
@@ -85,10 +82,17 @@ class FrontController
         $sql = $this->user->duplicationMail($mail);
         if ($sql === null) {
             $this->user->registerNew($name, $pass, $mail);
-            return $this->view->render('trueRegister');
+            $bool = true;
+            return $this->view->render('registration_view', ['bool' => $bool]);
         } else {
-            return $this->view->render('duplication_mail');
+            return $this->duplication();
         }
+    }
+
+    public function duplication()
+    {
+        $bool = null;
+        $this->view->render('registration_view', ['bool' => $bool]);
     }
 
     public function displayPostControlList()
@@ -96,42 +100,10 @@ class FrontController
         $this->post->postSelectDisplay();
     }
 
-    public function htmlTitleChapo($title, $chapo, $author, $contained, $id)
-    {
-        $title = strip_tags($title);
-        $chapo = strip_tags($chapo);
-        $contained = strip_tags($contained);
-        $author = strip_tags($author);
-        $post = $id;
-        $Post = new Post;
-        if ($post > 0) {
-            $Post->updateUser($title, $chapo, $contained, $author, $post);
-            return $this->view->render('true');
-        } else {
-            return $this->view->render('erreur_404');
-        }
-    }
-
-    public function addPostConfirmationTrue($title, $chapo, $author, $contained)
-    {
-        if (!empty($title) & !empty($author) & !empty($chapo) & !empty($contained)) {
-            $chapo = strip_tags($chapo);
-            $title = strip_tags($title);
-            $contained = strip_tags($contained);
-            $author = strip_tags($author);
-            $this->control->htmlTitleChapoPost($title, $chapo, $author, $contained);
-            return $this->view->render('true');
-        }
-    }
-
-    public function adminUserTrue()
-    {
-        $this->view->render('true');
-    }
-
     public function erreurRegister()
     {
-        $this->view->render('empty_or_wrong_registration');
+        $bool = false;
+        $this->view->render('connect_register_view', ['bool' => $bool]);
     }
 
     public function confirmationModificationComentaire($title, $chapo, $contained, $author, $id)

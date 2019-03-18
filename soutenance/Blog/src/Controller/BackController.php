@@ -28,16 +28,22 @@ class BackController
         $name = strip_tags($name);
         $pass = strip_tags($pass);
         $data = $this->user->connect();
-        $aData = $data->fetch();
-        if ($aData['pseudo'] == $name && $aData['pass'] == $pass) {
-            $_SESSION['pseudo'] = $name;
-            $token = new Token;
-            $token->token();
-            $this->view->render('connexion_true');
-        } else {
-            $this->view->render('empty_or_wrong_registration');
+        while ($donne = $data->fetch()) {
+            if ($donne['pseudo'] == $name && $donne['pass'] == $pass & (strlen($name) <= 500) & (strlen($pass) <= 500)) {
+                return $this->confirmConnect($name);
+            }
         }
-        $data->closeCursor();
+        $bool = false;
+        return $this->view->render('connect_register_view', ['bool' => $bool]);
+    }
+
+    public function confirmConnect($name)
+    {
+        $_SESSION['pseudo'] = $name;
+        $token = new Token;
+        $token->token();
+        $bool = true;
+        $this->view->render('connect_register_view', ['bool' => $bool]);
     }
 
     public function isUserConnected()
@@ -55,7 +61,8 @@ class BackController
     {
         if ($id > 0) {
             $this->post->deletePostConfirm($id);
-            $this->view->render('true');
+            $bool = true;
+            return $this->admin($bool);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -65,7 +72,8 @@ class BackController
     {
         if ($id > 0) {
             $this->user->trueAdminWaitUser($id);
-            $this->view->render('true');
+            $bool = true;
+            return $this->admin($bool);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -75,7 +83,8 @@ class BackController
     {
         if ($id > 0) {
             $this->commentary->adminValidCommentary($id);
-            $this->view->render('true');
+            $bool = true;
+            return $this->admin($bool);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -85,7 +94,8 @@ class BackController
     {
         if ($id > 0) {
             $this->commentary->adminRefusalCommentary($id);
-            $this->view->render('true');
+            $bool = true;
+            return $this->admin($bool);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -95,7 +105,8 @@ class BackController
     {
         if ($id > 0) {
             $this->user->falseAdminWaitUser($id);
-            $this->view->render('true');
+            $bool = true;
+            return $this->admin($bool);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -106,19 +117,55 @@ class BackController
         if (isset($logOut)) {
             session_unset();
             session_destroy();
-            return $this->view->render('deconnexion_true');
+            $bool = true;
+            return $this->view->render('connect_register_view', ['bool' => $bool]);
         } else {
             return $this->view->render('erreur_404');
         }
     }
 
-    public function admin()
+    public function admin($bool)
     {
         $dataAdminUser = $this->user->adminWait();
         $dataAdminCommentary = $this->commentary->adminValidCom();
         $dataDelete = $this->post->deletePost();
         $data = $this->post->postSelect();
         $this->view->render('backend', ['data' => $data, 'dataDelete' => $dataDelete,
-            'dataAdminCommentary' => $dataAdminCommentary, 'dataAdminUser' => $dataAdminUser]);
+            'dataAdminCommentary' => $dataAdminCommentary, 'dataAdminUser' => $dataAdminUser, 'bool' => $bool]);
+    }
+
+    public function htmlTitleChapo($title, $chapo, $author, $contained, $id)
+    {
+        $title = strip_tags($title);
+        $chapo = strip_tags($chapo);
+        $contained = strip_tags($contained);
+        $author = strip_tags($author);
+        $post = $id;
+        $Post = new Post;
+        if ($post > 0 & (strlen($title) <= 2000) & (strlen($chapo) <= 2000) & (strlen($contained) <= 40000)
+            & (strlen($author) <= 1000)) {
+            $Post->updatePost($title, $chapo, $contained, $author, $post);
+            $bool = true;
+            return $this->admin($bool);
+        } else {
+            return $this->view->render('erreur_404');
+        }
+    }
+
+    public function addPostConfirmationTrue($title, $chapo, $author, $contained)
+    {
+        if (!empty($title) & !empty($author) & !empty($chapo) & !empty($contained) & (strlen($title) <= 2000)
+            & (strlen($chapo) <= 2000) & (strlen($contained) <= 40000) & (strlen($author) <= 1000)) {
+            $chapo = strip_tags($chapo);
+            $title = strip_tags($title);
+            $contained = strip_tags($contained);
+            $author = strip_tags($author);
+            $this->htmlTitleChapoPost($title, $chapo, $author, $contained);
+            $bool = true;
+            return $this->admin($bool);
+        } else {
+            $bool = false;
+            return $this->admin($bool);
+        }
     }
 }

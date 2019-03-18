@@ -23,13 +23,14 @@ class Router
             if ($_GET['route'] === 'Enregistrement') {
                 $this->front->registration();
             } elseif ($_GET['route'] === 'Accueil') {
-                $this->front->home();
+                $bool = false;
+                $this->front->home($bool);
             } elseif ($_GET['route'] === 'liste_des_Articles') {
                 $this->front->displayPost();
             } elseif ($_GET['route'] === 'Connexion') {
                 $this->front->connect();
             } elseif ($_GET['route'] === 'Afficher_un_Article') {
-                $this->front->displayPostList($_POST['id_post_select_display']);
+                $this->front->displayPostList($_POST['id']);
             } elseif ($_GET['route'] === 'Validation_de_Suppression') {
                 $this->control->deleteConfirm($_POST['id']);
             } elseif ($_GET['route'] === 'Validation_de_Commentaire') {
@@ -40,7 +41,7 @@ class Router
                     $com = strip_tags(htmlspecialchars($_POST['com']));
                     $this->front->addConfirmCommentary($id, $com, $name);
                 } else {
-                    $this->front->erreurRegister();
+                    $this->front->displayPostList($_POST['id']);
                 }
             } elseif ($_GET['route'] === 'connexion_accomplie') {
                 if (isset($_POST['submit_connect'])) {
@@ -51,8 +52,6 @@ class Router
                         $this->front->erreurRegister();
                     }
                 }
-            } elseif ($_GET['route'] === 'Annuler') {
-                $this->front->false();
             } elseif ($_GET['route'] === 'Confirmation_Ajout_Article') {
                 if (!empty($_POST['title']) & !empty($_POST['chapo'])
                     & !empty($_POST['author']) & !empty($_POST['contained'])) {
@@ -60,18 +59,20 @@ class Router
                     $titlle = strip_tags($_POST['title']);
                     $contained = strip_tags($_POST['contained']);
                     $author = strip_tags($_POST['author']);
-                    $this->front->addPostConfirmationTrue($titlle,
+                    $this->control->addPostConfirmationTrue($titlle,
                         $chapo, $author, $contained);
                 } else {
-                    $this->front->emptyCaractere();
+                    $bool = false;
+                    $this->control->admin($bool);
                 }
             } elseif ($_GET['route'] === 'confirmation_modification_article') {
                 if (!empty($_POST['title']) & !empty($_POST['chapo'])
                     & !empty($_POST['author']) & !empty($_POST['contained'])) {
-                    $this->front->htmlTitleChapo($_POST['title'], $_POST['chapo'],
+                    $this->control->htmlTitleChapo($_POST['title'], $_POST['chapo'],
                         $_POST['author'], $_POST['contained'], $_POST['id_post']);
                 } else {
-                    $this->front->emptyCaractere();
+                    $bool = false;
+                    $this->control->admin($bool);
                 }
             } elseif ($_GET['route'] === 'Confirmation_Ajout_Utilisateur') {
                 $this->control->adminTrueUser($_POST['id']);
@@ -88,28 +89,30 @@ class Router
                     $sender = strip_tags(htmlspecialchars($_POST['mail']));
                     $form->Send($objet, $message, $sender);
                 } else {
-                    $this->front->emptyCaractere();
+                    $bool = false;
+                    $this->front->home($bool);
                 }
             } elseif ($_GET['route'] === 'Validation_de_commentaire') {
                 $this->control->adminTrueCommentary($_POST['id']);
             } elseif ($_GET['route'] === 'Administration') {
-                $this->control->admin();
+                $bool = false;
+                $this->control->admin($bool);
             } elseif ($_GET['route'] === 'Refuser_Commentaire') {
                 $this->control->deleteCommentary($_POST['id']);
             } elseif ($_GET['route'] === 'enregistrement_bon') {
                 if (isset($_POST['submit_register']) & !empty($_POST['mail']) &
                     !empty($_POST['name']) & !empty($_POST['pass_register']) & preg_match
-                    ("#[a-zA-Z0-9-]@[a-zA-Z0-9-].+[a-zA-Z0-9-]#", $_POST['mail'])) {
+                    ("#[a-zA-Z0-9-]@[a-zA-Z0-9-].+[a-zA-Z0-9-]#", $_POST['mail']) & (strlen($_POST['mail']) <= 100)
+                    & (strlen($_POST['name']) <= 100) & (strlen($_POST['pass_register']) <= 100)) {
                     $this->front->controllerEmptyRegister($_POST['name'],
                         $_POST['pass_register'], $_POST['mail']);
                 } else {
-                    $this->front->erreurRegister();
+                    $this->front->registration();
                 }
-            } else {
-                $this->front->erreurRegister();
             }
         } else {
-            $this->front->home();
+            $bool = false;
+            $this->front->home($bool);
         }
     }
 }

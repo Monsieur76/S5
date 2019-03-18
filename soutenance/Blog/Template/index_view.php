@@ -1,7 +1,25 @@
 <?php
 $this->title = 'Accueil'; ?>
 <div class="slide container-fluid">
+    <?php if (isset($_POST['submit_form']) & $bool === true) { ?>
+        <div class="alert alert-success" role="alert">
+            Le message a bien été envoyé.
+        </div>
+    <?php } elseif (isset($_POST['submit_form']) & $bool === false) { ?>
+        <div class="alert alert-danger" role="alert">
+            Un champ est vide.
+        </div>
+    <?php } elseif (isset($_POST['submit_form']) & $bool === null) { ?>
+        <div class="alert alert-warning" role="alert">
+            Mauvaise adresse mail.
+        </div>
+    <?php } elseif (isset($_POST['submit_form']) & $bool === 1) { ?>
+        <div class="alert alert-info" role="alert">
+            L'e-mail n'a pas pu être envoyé.Vérifier la connexion où les ports.
+        </div>
+    <?php } ?>
     <div class="row">
+        <h1 style="text-decoration: underline;margin-top: 30px">Accueil</h1>
         <div class="col-lg-12" style="margin-top: 50px">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -40,7 +58,7 @@ $this->title = 'Accueil'; ?>
     <div class="col-lg-8" style="font-size: larger;margin-bottom: 150px">
         <h3>Gaetan HENRY<br> Le développeur qu’il vous faut !</h3>
     </div>
-    <div class="card col-lg-6" style="width: 10rem;
+    <div class="card col-lg-6" style="
                             margin-bottom: 0px;margin-top: 155px">
         <div class="card-body contact">
             <h1 class="card-title" style="text-decoration: underline;">Contact</h1>
@@ -50,14 +68,14 @@ $this->title = 'Accueil'; ?>
                         <label for="inputname1" class="col-sm-3 col-form-label">Nom</label>
                         <div class="col-sm-3">
                             <input type="text" name="name" id="inputname1" placeholder='durant'
-                                   class="form-control text-center"/>
+                                   style="text-align: left" class="form-control"/>
                         </div>
                         <label for="inputfirstname" class="col-sm-3 col-form-label">
                             Prénom
                         </label>
                         <div class="col-sm-3">
                             <input type="text" name="first_name" id="inputfirstname" placeholder='paul'
-                                   class="form-control text-center"/>
+                                   style="text-align: left" class="form-control"/>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -66,7 +84,7 @@ $this->title = 'Accueil'; ?>
                         </label>
                         <div class="col-lg-9">
                             <input type="text" name="mail" id="inputmail" placeholder='azerty@gmail.com'
-                                   class="form-control text-center"/>
+                                   style="text-align: left" class="form-control"/>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -75,7 +93,7 @@ $this->title = 'Accueil'; ?>
                         </label>
                         <div class="col-lg-9">
                 <textarea name="message" cols="60px" placeholder='Message' id="inputmes"
-                          class="form-control text-center"></textarea>
+                          style="text-align: left" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="form-group" style="margin-top: 30px">
@@ -88,26 +106,27 @@ $this->title = 'Accueil'; ?>
         </div>
     </div>
     <div class="card col-lg-6" style="margin-top: 155px">
-    <div class="card-body contact col-lg-12" style="margin-top: 0px;">
-    <div class="col-lg-12" style="margin-top: px">
-        <h1 class="card-title" style="text-decoration: underline;">Suivez-Moi</h1>
-        <ul class="col-lg-12" style="margin-top: 0px; margin-bottom: 0px">
-            <div class="col-lg-12" style="display: flex">
-                <li id="logo" class="rotate col-lg-6">
-                    <a id="logocolor" href="https://github.com/Monsieur76/blog_OC"><i class="fab fa-github-alt fa-5x"></i></a>
-                </li>
-                <li id="logo" class="rotate col-lg-6"><a id="logocolor" href="#"><i
-                                class="fab fa-facebook-square fa-5x"></i></a></li>
+        <div class="card-body contact col-lg-12" style="margin-top: 0px;">
+            <div class="col-lg-12" style="margin-top: 0px">
+                <h1 class="card-title" style="text-decoration: underline;">Suivez-Moi</h1>
+                <ul class="col-lg-12" style="margin-top: 0px; margin-bottom: 0px">
+                    <div class="col-lg-12" style="display: flex">
+                        <li id="logo" class="rotate col-lg-6">
+                            <a id="logocolor" href="https://github.com/Monsieur76/blog_OC"><i
+                                        class="fab fa-github-alt fa-5x"></i></a>
+                        </li>
+                        <li id="logo" class="rotate col-lg-6"><a id="logocolor" href="#"><i
+                                        class="fab fa-facebook-square fa-5x"></i></a></li>
+                    </div>
+                    <div class="col-lg-12" style="display: flex;margin-top: 0px">
+                        <li id="logo" class="rotate col-lg-6"><a id="logocolor" href="#"><i
+                                        class="fab fa-twitter fa-5x"></i></a></li>
+                        <li id="logo" class="rotate col-lg-6"><a id="logocolor" href="#"><i
+                                        class="fab fa-linkedin fa-5x"></i></a></li>
+                    </div>
+                </ul>
             </div>
-            <div class="col-lg-12" style="display: flex;margin-top: 0px">
-                <li id="logo" class="rotate col-lg-6"><a id="logocolor" href="#"><i
-                                class="fab fa-twitter fa-5x"></i></a></li>
-                <li  id="logo" class="rotate col-lg-6"><a id="logocolor" href="#"><i
-                                class="fab fa-linkedin fa-5x"></i></a></li>
-            </div>
-        </ul>
+        </div>
     </div>
-    </div>
-</div>
 </div>
 

@@ -3,20 +3,24 @@ $this->title = 'Connexion/Déconnexion';
 $control = new \App\src\Controller\BackController();
 if ($control->isUserConnected()) {
     ?>
-    <div class="container">
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+        <?php if (isset($_POST['submit_connect']) & $bool === true) { ?>
+            <div class="alert alert-success" role="alert">
+                Vous êtes connecté.
+            </div>
+        <?php } ?>
         <div class="row">
-            <h1>Déconnexion </h1>
+            <h1 style="text-decoration: underline;margin-top: 30px">Déconnexion </h1>
         </div>
         <div class="row">
             <form action='?route=deconnexion' method='POST'>
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <input type='submit' name='deconnec' value='Déconnexion'
-                               class="btnColor text-light btn-dark  form-control"/>
+                        <button type='submit' name='deco'
+                                class="btnColor text-light btn-dark  form-control">Déconnexion
+                        </button>
                     </div>
                 </div>
-                <div class="form-group">
-                    <input type='hidden' name='deco' value='Déconnexion'/>
             </form>
         </div>
     </div>
@@ -24,12 +28,23 @@ if ($control->isUserConnected()) {
 } else {
     ?>
     <div class="container">
+        <?php if (isset($_POST['deco'])) { ?>
+            <div class="alert alert-success" role="alert">
+                Vous avez été déconnecté.
+            </div>
+        <?php } elseif (isset($_POST['submit_connect']) & $bool === false) { ?>
+            <div class="alert alert-danger" role="alert">
+                Un champ est vide où vous vous êtes trompé.
+            </div>
+        <?php } ?>
+        <div class="row">
+            <h1 style="text-decoration: underline;margin-top: 30px">Connexion </h1>
+        </div>
         <div class="row">
             <div class="card col-lg-5" style="width: 18rem;align-items: center;
                             margin-bottom: 70px;margin-top: 70px">
                 <img src="../Public/img/poigner.jpg" class="card-img-top" style="margin-top: 15px">
                 <div class="card-body">
-                    <h5 class="card-title">Connexion</h5>
                     <form action='?route=connexion_accomplie' method='POST'>
                         <div class="form-group row">
                             <label for="inputname1" class="col-sm-4 col-form-label">Identifiant</label>

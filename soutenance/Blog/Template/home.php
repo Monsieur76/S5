@@ -1,6 +1,5 @@
 <?php
 namespace App\Template;
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,13 +9,16 @@ namespace App\Template;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="../Public/css/view.css"/>
+    <link rel="stylesheet" href="../Public/css/view.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title><?= isset($title) ? $title : '' ?></title>
     <meta charset="utf-8"/>
 </head>
 <body>
-
+<form method="post">
+    <button class="btn" value="theme" type="submit"><i class="fas fa-sun"></i></button>
+</form>
 <header>
     <div id="menu">
         <?= isset($menu) ? $menu : '' ?>
