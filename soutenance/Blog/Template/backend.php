@@ -96,27 +96,27 @@ $this->title = 'Administration';
                                                             <div class="form-group">
                                                                 <label for="recipient-name" style="color: black"
                                                                        class="col-form-label">Titre</label>
-                                                                <textarea class="form-control" name="title" rows="3"
+                                                                <textarea class="form-control" name="title" rows="3" style="text-align: left"
                                                                           id="recipient-name"><?= $k[1] ?></textarea>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="recipient-name" style="color: black"
                                                                        class="col-form-label">Chapo</label>
-                                                                <textarea class="form-control" rows="5" name="chapo"
+                                                                <textarea class="form-control" rows="5" name="chapo" style="text-align: left"
                                                                           id="recipient-name"><?= $k[2] ?></textarea>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="recipient-name" style="color: black"
                                                                        class="col-form-label">Autheur</label>
                                                                 <input type="text" class="form-control"
-                                                                       id="recipient-name"
+                                                                       id="recipient-name" style="text-align: left"
                                                                        name="author" value="<?= $k[4] ?>">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="message-text" style="color: black"
                                                                        class="col-form-label">Contenu de
                                                                     l'article</label>
-                                                                <textarea class="form-control" rows="10" name="contained"
+                                                                <textarea class="form-control" rows="10" name="contained" style="text-align: left"
                                                                           id="message-text"><?= $k[3] ?></textarea>
                                                                 <input type="hidden" name="id_post"
                                                                        value="<?= $k[0] ?>"/>
@@ -190,27 +190,27 @@ $this->title = 'Administration';
                                 <label for="inputname4" style="color: antiquewhite"><strong>Titre</strong></label>
                                 <div class="">
                                 <input id="inputname4" type="text" name="title" placeholder='Terminus'
-                                          class="form-control text-center" >
+                                          class="form-control" style="text-align: left">
                                 </div>
                             </div>
                             <div class="form-group col-lg-6" style="margin-top: 10px;text-align: left" >
                                 <label for="inputname1" style="color: antiquewhite"><strong>Autheur</strong></label>
                                 <div class="">
                                     <input type="text" id="inputname1" name="author" placeholder='Alix Lerman Enriquez'
-                                           class="form-control text-center"/>
+                                           class="form-control" style="text-align: left"/>
                                 </div>
                             </div>
                             <div class="form-group row col-lg-12" style="margin-top: 10px;text-align: left">
                                 <label for="inputname2" class="col-lg-12 col-form-label" style="color: antiquewhite"><strong>Chapo</strong></label>
                                 <div class="col-lg-12">
                                 <textarea id="inputname2" rows="3" name="chapo" placeholder='J’ai pris un train en sens inverse. La voie était semée de roses et de ronces blessées. Les rails recouverts de charbons bleus métalliques.'
-                                          class="form-control text-center"></textarea>
+                                          class="form-control" style="text-align: left"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row col-lg-12" style="margin-top: 10px;text-align: left">
                                 <label for="inputname3" class="col-lg-12 col-form-label" style="color: antiquewhite"><strong>Contenu</strong></label>
                                 <div class="col-lg-12">
-                        <textarea name="contained" rows="10" id="inputname3" class="form-control text-center"
+                        <textarea name="contained" rows="10" id="inputname3" class="form-control" style="text-align: left"
                                   placeholder="J’ai pris un train en sens inverse.La voie était semée de roseset de ronces blessées.Les rails recouvertsde charbons bleus métalliques.Le ciel lourd de promessesnon tenues, de rêves déchus, diffus,de désillusions tues, de séparations.Et sous la désolation de ce jour gris,je regardais, égarée, mon corpsscarifié de silence et de nuit.Le trajet était long,sans précise destination,comme dans un train fantômeeffaré de solitude crue, atoneau parfum déjà suride cendre et de suie.Au terminus, j’ai respiréun arôme de mort et de pluie."></textarea>
                                 </div>
                             </div>
