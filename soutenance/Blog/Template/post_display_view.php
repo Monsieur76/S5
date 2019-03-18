@@ -25,7 +25,7 @@ $this->title = 'Article';
     <div class="row justify-content-center">
         <div class="col-lg-3">
             <button type='button' data-target="#addCom<?= $post['id'] ?>" data-toggle="modal"
-                    class="btnColor btn-dark form-control">Ajouter commentaire
+                    class="btnColor btn-dark form-control"><i class="fas fa-comment-alt"> Ajouter commentaire</i>
             </button>
         </div>
         <div class="modal fade" id="addCom<?= $post['id'] ?>" tabindex="-1" role="dialog"
@@ -62,7 +62,7 @@ $this->title = 'Article';
         <form action="?route=liste_des_Articles" method="post">
             <div class="col-lg-12">
                 <button type='submit' class="btnColor btn-dark form-control"
-                >Retour a liste des articles
+                ><i class="fas fa-reply"> Retour a liste des articles</i>
                 </button>
             </div>
     </div>

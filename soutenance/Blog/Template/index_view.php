@@ -98,7 +98,7 @@ $this->title = 'Accueil'; ?>
                     </div>
                     <div class="form-group" style="margin-top: 30px">
                         <button type='submit' name="submit_form"
-                                class="btnColor form-control text-center btn-dark">Envoyer
+                                class="btnColor form-control text-center btn-dark"><i class="far fa-envelope"> Envoyer</i>
                         </button>
                     </div>
                 </form>

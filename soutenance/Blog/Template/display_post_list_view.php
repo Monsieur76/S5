@@ -20,7 +20,7 @@ $this->title = 'Liste des articles';
                         <ul>
                             <li style="list-style-type: none;">
                                 <button type='submit' name='display_poste' class="btnColor btn-dark form-control">
-                                    afficher
+                                    <i class="far fa-eye fa-1x"> Afficher</i>
                                 </button>
                             </li>
                             <input type='hidden' name='id'
