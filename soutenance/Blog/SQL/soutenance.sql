@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 18 mars 2019 à 15:19
+-- Généré le :  lun. 18 mars 2019 à 13:53
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -81,7 +81,7 @@ DROP TABLE IF EXISTS `post`;
 CREATE TABLE IF NOT EXISTS `post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `chapo` text CHARACTER SET utf8 NOT NULL,
+  `chapo` text CHARACTER SET utf8mb4 NOT NULL,
   `contained` text CHARACTER SET utf8 NOT NULL,
   `author` varchar(255) CHARACTER SET utf8 NOT NULL,
   `date_post` datetime NOT NULL,

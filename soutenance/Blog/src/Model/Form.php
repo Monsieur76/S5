@@ -28,7 +28,7 @@ class Form
                         else{
                             $bool = 1;
                             $this->front->home($bool);
-                            
+
                         }
                 } else {
                     $bool = null;

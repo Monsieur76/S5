@@ -110,7 +110,13 @@ class Router
                     $this->front->registration();
                 }
             }
-        } else {
+            else {
+                $_GET['route'] = 'Accueil';
+                $bool = false;
+                $this->front->home($bool);
+            }
+        }
+        else {
             $_GET['route'] = 'Accueil';
             $bool = false;
             $this->front->home($bool);

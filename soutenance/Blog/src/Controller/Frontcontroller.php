@@ -32,7 +32,7 @@ class FrontController
 
     public function home($bool)
     {
-        $this->view->render('index_view', ['bool' => $bool]);
+        $this->view->render('index_view', ['bool' => $bool ]);
     }
 
     public function displayPost()

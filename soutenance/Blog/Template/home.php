@@ -16,9 +16,6 @@ namespace App\Template;
     <meta charset="utf-8"/>
 </head>
 <body>
-<form method="post">
-    <button class="btn" value="theme" type="submit"><i class="fas fa-sun"></i></button>
-</form>
 <header>
     <div id="menu">
         <?= isset($menu) ? $menu : '' ?>
