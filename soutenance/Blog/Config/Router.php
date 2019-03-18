@@ -111,6 +111,7 @@ class Router
                 }
             }
         } else {
+            $_GET['route'] = 'Accueil';
             $bool = false;
             $this->front->home($bool);
         }
