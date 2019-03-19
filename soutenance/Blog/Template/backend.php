@@ -62,23 +62,23 @@ $this->title = 'Administration';
                                 <th scope="col" style="font-size: x-large">Modification/Suppression</th>
                             </tr>
                             </thead>
-                            <?php foreach ($data as $donne => $k) { ?>
+                            <?php foreach ($data as $donne => $key) { ?>
                                 <tbody>
                                 <tr>
-                                    <th scope="row" id="th"><?= $k[1] ?></th>
-                                    <td id="th" ><?= $k[2] ?></td>
-                                    <td id="th" ><?= $k[5]; ?></td>
+                                    <th scope="row" class="th"><?= $key[1] ?></th>
+                                    <td class="th" ><?= $key[2] ?></td>
+                                    <td class="th" ><?= $key[5]; ?></td>
                                     <td style="border-top:double">
                                         <button type="button" class="btn col-lg-3" data-toggle="modal"
-                                                data-target="#exampleModal<?= $k[0] ?>"
+                                                data-target="#exampleModal<?= $key[0] ?>"
                                                 data-whatever="@mdo">
                                             <i class="rotate fas fa-pencil-alt fa-2x" style="color: #03489c"></i>
                                         </button>
                                         <button type="button" id="inputDelete" data-toggle="modal" class="btn col-lg-3"
-                                                data-target="#delete<?= $k[0] ?>"><i class="rotate far fa-trash-alt
+                                                data-target="#delete<?= $key[0] ?>"><i class="rotate far fa-trash-alt
                                                 fa-2x" style="color: red"></i>
                                         </button>
-                                        <div class="modal fade" id="exampleModal<?= $k[0] ?>" tabindex="-1"
+                                        <div class="modal fade" id="exampleModal<?= $key[0] ?>" tabindex="-1"
                                              role="dialog"
                                              aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document" >
@@ -97,29 +97,29 @@ $this->title = 'Administration';
                                                                 <label for="recipient-name" style="color: black"
                                                                        class="col-form-label">Titre</label>
                                                                 <textarea class="form-control" name="title" rows="3" style="text-align: left"
-                                                                          id="recipient-name"><?= $k[1] ?></textarea>
+                                                                          id="recipient-name"><?= $key[1] ?></textarea>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="recipient-name" style="color: black"
                                                                        class="col-form-label">Chapo</label>
                                                                 <textarea class="form-control" rows="5" name="chapo" style="text-align: left"
-                                                                          id="recipient-name"><?= $k[2] ?></textarea>
+                                                                          id="recipient-name"><?= $key[2] ?></textarea>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="recipient-name" style="color: black"
                                                                        class="col-form-label">Autheur</label>
                                                                 <input type="text" class="form-control"
                                                                        id="recipient-name" style="text-align: left"
-                                                                       name="author" value="<?= $k[4] ?>">
+                                                                       name="author" value="<?= $key[4] ?>">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="message-text" style="color: black"
                                                                        class="col-form-label">Contenu de
                                                                     l'article</label>
                                                                 <textarea class="form-control" rows="10" name="contained" style="text-align: left"
-                                                                          id="message-text"><?= $k[3] ?></textarea>
+                                                                          id="message-text"><?= $key[3] ?></textarea>
                                                                 <input type="hidden" name="id_post"
-                                                                       value="<?= $k[0] ?>"/>
+                                                                       value="<?= $key[0] ?>"/>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
@@ -136,7 +136,7 @@ $this->title = 'Administration';
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal fade" id="delete<?= $k[0] ?>" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="delete<?= $key[0] ?>" tabindex="-1" role="dialog"
                                              aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -152,7 +152,7 @@ $this->title = 'Administration';
                                                     </div>
                                                     <form action="?route=Validation_de_Suppression" method="post">
                                                         <div class="modal-footer">
-                                                            <input type="hidden" name="id" value="<?= $k[0] ?>"/>
+                                                            <input type="hidden" name="id" value="<?= $key[0] ?>"/>
                                                             <button type="button" class="btn btn-secondary"
                                                                     data-dismiss="modal">
                                                                 Fermer
@@ -271,7 +271,7 @@ $this->title = 'Administration';
                             </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($dataAdminCommentary as $data => $k) { ?>
+                            <?php foreach ($dataAdminCommentary as $commentary => $k) { ?>
                                 <tr>
                                     <th scope="row" class="th"><?= $k[5] ?></th>
                                     <th class="th" >

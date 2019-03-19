@@ -28,19 +28,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DAO/Post.php">
+        <entry file="file://$PROJECT_DIR$/Config/Router.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="623">
-              <caret line="80" column="111" selection-start-line="80" selection-start-column="111" selection-end-line="80" selection-end-column="111" />
+            <state relative-caret-position="1188">
+              <caret line="70" column="21" lean-forward="true" selection-start-line="70" selection-start-column="20" selection-end-line="71" selection-end-column="109" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/BackController.php">
+        <entry file="file://$PROJECT_DIR$/Template/backend.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="147" column="31" lean-forward="true" selection-start-line="147" selection-start-column="31" selection-end-line="147" selection-end-column="31" />
+            <state relative-caret-position="2862">
+              <caret line="154" column="106" selection-start-line="154" selection-start-column="106" selection-end-line="154" selection-end-column="106" />
+              <folding>
+                <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#9;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,14 +138,14 @@
         <option value="$PROJECT_DIR$/src/DAO/User.php" />
         <option value="$PROJECT_DIR$/Template/registration_view.php" />
         <option value="$PROJECT_DIR$/src/Controller/FrontController.php" />
-        <option value="$PROJECT_DIR$/Public/css/view.css" />
         <option value="$PROJECT_DIR$/Template/menu.php" />
         <option value="$PROJECT_DIR$/Config/Router.php" />
         <option value="$PROJECT_DIR$/Template/index_view.php" />
         <option value="$PROJECT_DIR$/src/Model/Form.php" />
-        <option value="$PROJECT_DIR$/Template/backend.php" />
         <option value="$PROJECT_DIR$/src/Controller/BackController.php" />
         <option value="$PROJECT_DIR$/src/DAO/Post.php" />
+        <option value="$PROJECT_DIR$/Public/css/view.css" />
+        <option value="$PROJECT_DIR$/Template/backend.php" />
       </list>
     </option>
   </component>
@@ -174,7 +177,18 @@
             <path>
               <item name="Blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="Blog" type="462c0819:PsiDirectoryNode" />
+              <item name="Config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Blog" type="462c0819:PsiDirectoryNode" />
               <item name="Public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Blog" type="462c0819:PsiDirectoryNode" />
+              <item name="Public" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Blog" type="b2602c69:ProjectViewProjectNode" />
@@ -272,12 +286,12 @@
       <workItem from="1552896977073" duration="21008000" />
       <workItem from="1552983172950" duration="9326000" />
       <workItem from="1552995116633" duration="7503000" />
-      <workItem from="1553008023051" duration="4747000" />
+      <workItem from="1553008023051" duration="5401000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="426300000" />
+    <option name="totallyTimeSpent" value="426954000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -450,13 +464,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/css/view.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="145" column="1" lean-forward="true" selection-start-line="145" selection-start-column="1" selection-end-line="145" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -499,13 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Config/Router.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="70" column="21" lean-forward="true" selection-start-line="70" selection-start-column="20" selection-end-line="71" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Template/index_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -513,24 +513,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Template/backend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="284" column="75" lean-forward="true" selection-start-line="284" selection-start-column="75" selection-end-line="284" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/Post.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="80" column="111" selection-start-line="80" selection-start-column="111" selection-end-line="80" selection-end-column="111" />
+        <state relative-caret-position="677">
+          <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/BackController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="147" column="31" lean-forward="true" selection-start-line="147" selection-start-column="31" selection-end-line="147" selection-end-column="31" />
+        <state relative-caret-position="531">
+          <caret line="159" column="40" lean-forward="true" selection-start-line="159" selection-start-column="40" selection-end-line="159" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/Router.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="70" column="21" lean-forward="true" selection-start-line="70" selection-start-column="20" selection-end-line="71" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/css/view.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="141" column="3" selection-start-line="141" selection-start-column="3" selection-end-line="141" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/backend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2862">
+          <caret line="154" column="106" selection-start-line="154" selection-start-column="106" selection-end-line="154" selection-end-column="106" />
+          <folding>
+            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#9;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
