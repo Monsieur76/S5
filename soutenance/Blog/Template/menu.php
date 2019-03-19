@@ -22,7 +22,7 @@ if ($control->isUserConnected() === true) {
                             href='?route=Administration'><i class="fas fa-toolbox"> Administration</i></a>
                 </li>
                 <li class="nav-item col-lg-3" style="list-style-type: none;"><a
-                            id="menu" <?php if ($_GET['route'] === 'Connexion') {
+                            id="menu" <?php if ($_GET['route'] === 'Connexion' || $_GET['route'] === 'connexion_accomplie') {
                         echo 'class="nav-link active"';
                     } ?>
                             href='?route=Connexion'><i class="fas fa-door-open"> Déconnexion</i></a>
@@ -53,7 +53,7 @@ if ($control->isUserConnected() === true) {
                             href="?route=Enregistrement"><i class="fas fa-user-plus"> Inscription</i></a>
                 </li>
                 <li class="nav-item col-lg-3" style="list-style-type: none;"><a
-                            id="menu" <?php if ($_GET['route'] === 'Connexion') {
+                            id="menu" <?php if ($_GET['route'] === 'Connexion' || $_GET['route'] === 'deconnexion') {
                         echo 'class="nav-link active"';
                     } ?>
                             href='?route=Connexion'><i class="fas fa-door-open"> Connexion</i></a>

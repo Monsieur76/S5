@@ -27,7 +27,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Template/index_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2673">
+            <state relative-caret-position="1377">
               <caret line="100" column="111" selection-start-line="100" selection-start-column="111" selection-end-line="100" selection-end-column="111" />
             </state>
           </provider>
@@ -45,10 +45,31 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Config/Router.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="26" column="48" lean-forward="true" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+            <state relative-caret-position="-27">
+              <caret line="62" column="52" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="52" />
               <folding>
                 <element signature="e#30#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Template/menu.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="567">
+              <caret line="24" column="101" selection-start-line="24" selection-start-column="101" selection-end-line="24" selection-end-column="101" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/BackController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="134" column="5" lean-forward="true" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="5" />
+              <folding>
+                <element signature="e#38#65#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -144,7 +165,6 @@
         <option value="$PROJECT_DIR$/src/Model/Form.php" />
         <option value="$PROJECT_DIR$/Template/home.php" />
         <option value="$PROJECT_DIR$/Public/css/view.css" />
-        <option value="$PROJECT_DIR$/Template/menu.php" />
         <option value="$PROJECT_DIR$/Template/post_display_view.php" />
         <option value="$PROJECT_DIR$/Template/display_post_list_view.php" />
         <option value="$PROJECT_DIR$/Template/index_view.php" />
@@ -152,10 +172,11 @@
         <option value="$PROJECT_DIR$/src/Controller/BackController.php" />
         <option value="$PROJECT_DIR$/src/Controller/FrontController.php" />
         <option value="$PROJECT_DIR$/Config/Router.php" />
+        <option value="$PROJECT_DIR$/Template/menu.php" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-22" />
     <option name="y" value="27" />
     <option name="width" value="1400" />
@@ -294,12 +315,12 @@
       <workItem from="1552551687296" duration="21711000" />
       <workItem from="1552637923318" duration="21456000" />
       <workItem from="1552896977073" duration="21008000" />
-      <workItem from="1552983172950" duration="870000" />
+      <workItem from="1552983172950" duration="1542000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="405594000" />
+    <option name="totallyTimeSpent" value="406266000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -479,24 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Template/menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-          <folding>
-            <element signature="e#146#194#0#HTML" expanded="true" />
-            <element signature="e#317#347#0#HTML" expanded="true" />
-            <element signature="e#676#706#0#HTML" expanded="true" />
-            <element signature="e#1048#1078#0#HTML" expanded="true" />
-            <element signature="e#1425#1455#0#HTML" expanded="true" />
-            <element signature="e#1970#2000#0#HTML" expanded="true" />
-            <element signature="e#2306#2336#0#HTML" expanded="true" />
-            <element signature="e#2678#2708#0#HTML" expanded="true" />
-            <element signature="e#3054#3084#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Form.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="596">
@@ -521,20 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Template/index_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2673">
-          <caret line="100" column="111" selection-start-line="100" selection-start-column="111" selection-end-line="100" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Template/backend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="217" column="90" selection-start-line="217" selection-start-column="90" selection-end-line="217" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Config/Autoloader.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -554,18 +543,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/BackController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3996">
-          <caret line="148" column="39" lean-forward="true" selection-start-line="148" selection-start-column="39" selection-end-line="148" selection-end-column="39" />
+        <state relative-caret-position="495">
+          <caret line="134" column="5" lean-forward="true" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="5" />
           <folding>
             <element signature="e#38#65#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Template/index_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="100" column="111" selection-start-line="100" selection-start-column="111" selection-end-line="100" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/backend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="217" column="90" selection-start-line="217" selection-start-column="90" selection-end-line="217" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="24" column="101" selection-start-line="24" selection-start-column="101" selection-end-line="24" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Config/Router.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="26" column="48" lean-forward="true" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+        <state relative-caret-position="-27">
+          <caret line="62" column="52" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="52" />
           <folding>
             <element signature="e#30#68#0#PHP" expanded="true" />
           </folding>
