@@ -13,7 +13,8 @@ if ($control->isUserConnected() === true) {
                             href="?route=Accueil"><i class="fas fa-home"> Accueil</i></a></li>
                 <li class="nav-item col-lg-3" style="list-style-type: none;"><a
                             id="menu" <?php if ($_GET['route'] === 'liste_des_Articles'||
-                        $_GET['route'] === 'Afficher_un_Article') {
+                        $_GET['route'] === 'Afficher_un_Article'||
+                        $_GET['route'] === 'Validation_de_Commentaire') {
                         echo 'class="nav-link active"';
                     } ?>
                             href='?route=liste_des_Articles'><i class="fas fa-list-ul"> Liste des articles</i></a></li>
@@ -24,7 +25,6 @@ if ($control->isUserConnected() === true) {
                         $_GET['route'] === 'confirmation_modification_article'
                         ||$_GET['route'] === 'Confirmation_Ajout_Utilisateur'||
                         $_GET['route'] === 'supprimer_utilisateur'||
-                        $_GET['route'] === 'Validation_de_commentaire'||
                         $_GET['route'] === 'Refuser_Commentaire') {
                         echo 'class="nav-link active"';
                     } ?>
@@ -53,7 +53,8 @@ if ($control->isUserConnected() === true) {
                             href="?route=Accueil"><i class="fas fa-home"> Accueil</i></a></li>
                 <li class="nav-item col-lg-3" style="list-style-type: none;"><a
                             id="menu" <?php if ($_GET['route'] === 'liste_des_Articles' ||
-                    $_GET['route'] === 'Afficher_un_Article') {
+                    $_GET['route'] === 'Afficher_un_Article'||
+                        $_GET['route'] === 'Validation_de_commentaire') {
                         echo 'class="nav-link active"';
                     } ?>
                             href="?route=liste_des_Articles"><i class="fas fa-list-ul"> Liste des articles</i></a></li>
