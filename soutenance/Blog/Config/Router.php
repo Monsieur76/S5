@@ -68,8 +68,9 @@ class Router
             } elseif ($_GET['route'] === 'confirmation_modification_article') {
                 if (!empty($_POST['title']) & !empty($_POST['chapo'])
                     & !empty($_POST['author']) & !empty($_POST['contained'])) {
-                    $this->control->htmlTitleChapo($_POST['title'], $_POST['chapo'],
-                        $_POST['author'], $_POST['contained'], $_POST['id_post']);
+                    $post = ['title'=>$_POST['title'],'chapo'=> $_POST['chapo'],
+                        'author'=>$_POST['author'],'contained'=> $_POST['contained'],'id'=>$_POST['id_post']];
+                    $this->control->htmlTitleChapo($post);
                 } else {
                     $this->control->admin($this->bool);
                 }

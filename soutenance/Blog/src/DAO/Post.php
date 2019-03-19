@@ -73,13 +73,13 @@ class Post
         return $data;
     }
 
-    public function updatePost($title, $chapo, $contained, $author, $post)
+    public function updatePost($title, $chapo, $contained, $author,$post)
     {
         try {
             $update = "UPDATE post SET title = ? , chapo = ?, contained = ? , author = ? ,
             date_post = NOW() WHERE id = ?";
             $data = $this->db->prepare($update);
-            $data->execute(array($title, $chapo, $contained, $author, $post));
+            $data->execute(array($title, $chapo, $contained, $author,$post));
         } catch (Exception $e) {
             $e->getMessage();
         }

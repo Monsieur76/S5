@@ -135,13 +135,13 @@ class BackController
             'dataAdminCommentary' => $dataAdminCommentary, 'dataAdminUser' => $dataAdminUser, 'bool' => $bool]);
     }
 
-    public function htmlTitleChapo($title, $chapo, $author, $contained, $id)
+    public function htmlTitleChapo($post)
     {
-        $title = strip_tags($title);
-        $chapo = strip_tags($chapo);
-        $contained = strip_tags($contained);
-        $author = strip_tags($author);
-        $post = $id;
+        $title = strip_tags($post['title']);
+        $chapo = strip_tags($post['chapo']);
+        $contained = strip_tags($post['contained']);
+        $author = strip_tags($post['author']);
+        $post = $post['id'];
         $Post = new Post;
         if ($post > 0 & (strlen($title) <= 1000) & (strlen($chapo) <= 2000) & (strlen($contained) <= 10000)
             & (strlen($author) <= 200)) {

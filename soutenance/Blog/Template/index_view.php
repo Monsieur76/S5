@@ -7,11 +7,7 @@ $this->title = 'Accueil'; ?>
         </div>
     <?php } elseif (isset($_POST['submit_form']) & $bool === false) { ?>
         <div class="alert alert-danger" role="alert">
-            Un champ est vide.
-        </div>
-    <?php } elseif (isset($_POST['submit_form']) & $bool === null) { ?>
-        <div class="alert alert-warning" role="alert">
-            Mauvaise adresse mail.
+            Un champ est vide où adresse mail non valide.
         </div>
     <?php } elseif (isset($_POST['submit_form']) & $bool === 1) { ?>
         <div class="alert alert-info" role="alert">

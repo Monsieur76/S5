@@ -271,7 +271,7 @@ $this->title = 'Administration';
                             </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($dataAdminCommentary as $donne => $k) { ?>
+                            <?php foreach ($dataAdminCommentary as $data => $k) { ?>
                                 <tr>
                                     <th scope="row" class="th"><?= $k[5] ?></th>
                                     <th class="th" >
