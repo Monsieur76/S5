@@ -137,15 +137,14 @@ class BackController
 
     public function htmlTitleChapo($post)
     {
-        $title = strip_tags($post['title']);
-        $chapo = strip_tags($post['chapo']);
-        $contained = strip_tags($post['contained']);
-        $author = strip_tags($post['author']);
-        $post = $post['id'];
+        $post['title'] = strip_tags($post['title']);
+        $post['chapo'] = strip_tags($post['chapo']);
+        $post['contained'] = strip_tags($post['contained']);
+        $post['author'] = strip_tags($post['author']);
         $Post = new Post;
-        if ($post > 0 & (strlen($title) <= 1000) & (strlen($chapo) <= 2000) & (strlen($contained) <= 10000)
-            & (strlen($author) <= 200)) {
-            $Post->updatePost($title, $chapo, $contained, $author, $post);
+        if ($post > 0 & (strlen($post['title']) <= 1000) & (strlen($post['chapo']) <= 2000) & (strlen($post['contained']) <= 10000)
+            & (strlen($post['author']) <= 200)) {
+            $Post->updatePost($post);
             $this->bool = true;
             return $this->admin($this->bool);
         } else {
