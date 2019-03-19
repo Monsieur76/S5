@@ -1,7 +1,5 @@
 <?php
 session_start();
-require '../src/DAO/Database.php';
-require '../Config/autoloader.php';
-App\Config\Autoloader::register();
+require '../vendor/autoload.php';
 $index = new App\Config\Router;
 $index->run();

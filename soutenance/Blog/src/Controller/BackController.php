@@ -14,6 +14,7 @@ class BackController
     private $view;
     private $user;
     private $commentary;
+    private $bool;
 
     public function __construct()
     {
@@ -33,8 +34,8 @@ class BackController
                 return $this->confirmConnect($name);
             }
         }
-        $bool = false;
-        return $this->view->render('connect_register_view', ['bool' => $bool]);
+        $this->bool = false;
+        return $this->view->render('connect_register_view', ['bool' => $this->bool]);
     }
 
     public function confirmConnect($name)
@@ -42,8 +43,8 @@ class BackController
         $_SESSION['pseudo'] = $name;
         $token = new Token;
         $token->token();
-        $bool = true;
-        $this->view->render('connect_register_view', ['bool' => $bool]);
+        $this->bool = true;
+        $this->view->render('connect_register_view', ['bool' => $this->bool]);
     }
 
     public function isUserConnected()
@@ -61,8 +62,8 @@ class BackController
     {
         if ($id > 0) {
             $this->post->deletePostConfirm($id);
-            $bool = true;
-            return $this->admin($bool);
+            $this->bool = true;
+            return $this->admin($this->bool);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -72,8 +73,8 @@ class BackController
     {
         if ($id > 0) {
             $this->user->trueAdminWaitUser($id);
-            $bool = true;
-            return $this->admin($bool);
+            $this->bool = true;
+            return $this->admin($this->bool);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -83,8 +84,8 @@ class BackController
     {
         if ($id > 0) {
             $this->commentary->adminValidCommentary($id);
-            $bool = true;
-            return $this->admin($bool);
+            $this->bool = true;
+            return $this->admin($this->bool);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -94,8 +95,8 @@ class BackController
     {
         if ($id > 0) {
             $this->commentary->adminRefusalCommentary($id);
-            $bool = true;
-            return $this->admin($bool);
+            $this->bool = true;
+            return $this->admin($this->bool);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -105,8 +106,8 @@ class BackController
     {
         if ($id > 0) {
             $this->user->falseAdminWaitUser($id);
-            $bool = true;
-            return $this->admin($bool);
+            $this->bool = true;
+            return $this->admin($this->bool);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -117,8 +118,8 @@ class BackController
         if (isset($logOut)) {
             session_unset();
             session_destroy();
-            $bool = true;
-            return $this->view->render('connect_register_view', ['bool' => $bool]);
+            $this->bool = true;
+            return $this->view->render('connect_register_view', ['bool' => $this->bool]);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -145,8 +146,8 @@ class BackController
         if ($post > 0 & (strlen($title) <= 1000) & (strlen($chapo) <= 2000) & (strlen($contained) <= 10000)
             & (strlen($author) <= 200)) {
             $Post->updatePost($title, $chapo, $contained, $author, $post);
-            $bool = true;
-            return $this->admin($bool);
+            $this->bool = true;
+            return $this->admin($this->bool);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -161,11 +162,10 @@ class BackController
             $contained = strip_tags($contained);
             $author = strip_tags($author);
             $this->htmlTitleChapoPost($title, $chapo, $author, $contained);
-            $bool = true;
-            return $this->admin($bool);
+            $this->bool = true;
         } else {
-            $bool = false;
-            return $this->admin($bool);
+            $this->bool = false;
         }
+        return $this->admin($this->bool);
     }
 }

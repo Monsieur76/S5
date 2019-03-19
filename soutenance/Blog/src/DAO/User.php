@@ -27,9 +27,8 @@ class User
     {
         try {
             $data = $this->db->prepare('INSERT INTO admin (pseudo,pass,mail,register,date_user)
-            VALUES (?,?,?,?,NOW())')
-            or die(print_r($data->errorInfo()));
-            $data->execute(array($name, $pass, $mail, 0,));
+            VALUES (?,?,?,?,NOW())');
+            $data->execute(array($name, $pass, $mail, 0));
             return $data;
         } catch (Exception $e) {
             $e->getMessage();
@@ -41,6 +40,15 @@ class User
         $sql = "SELECT id FROM admin WHERE mail = ? ";
         $data = $this->db->prepare($sql);
         $data->execute([$mail]);
+        $donne = $data->fetch();
+        return $donne['id'];
+    }
+
+    public function duplicationUser($name)
+    {
+        $sql = "SELECT id FROM admin WHERE pseudo = ?";
+        $data = $this->db->prepare($sql);
+        $data->execute([$name]);
         $donne = $data->fetch();
         return $donne['id'];
     }

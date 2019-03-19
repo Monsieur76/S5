@@ -14,6 +14,7 @@ class FrontController
     private $commentary;
     private $control;
     private $user;
+    private $bool;
 
     public function __construct()
     {
@@ -26,8 +27,8 @@ class FrontController
 
     public function registration()
     {
-        $bool = false;
-        $this->view->render('registration_view', ['bool' => $bool]);
+        $this->bool = false;
+        $this->view->render('registration_view', ['bool' => $this->bool]);
     }
 
     public function home($bool)
@@ -43,8 +44,8 @@ class FrontController
 
     public function connect()
     {
-        $bool = false;
-        $this->view->render('connect_register_view', ['bool' => $bool]);
+        $this->bool = false;
+        $this->view->render('connect_register_view', ['bool' => $this->bool]);
     }
 
     public function displayPostList($id)
@@ -52,9 +53,9 @@ class FrontController
         $commentary = $this->commentary->commentary($id);
         $post = $this->post->displayPost($id)->fetch();
         if ($post > 0) {
-            $bool = false;
+            $this->bool = false;
             return $this->view->render('post_display_view', ['post' => $post,
-                'commentary' => $commentary, 'id' => $id, 'bool' => $bool]);
+                'commentary' => $commentary, 'id' => $id, 'bool' => $this->bool]);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -64,11 +65,11 @@ class FrontController
     {
         if ($id > 0 & !empty($com) & (strlen($name) <= 200) & (strlen($com) <= 10000)) {
             $this->commentary->insertCom($id, $com, $name);
-            $bool = true;
+            $this->bool = true;
             $commentary = $this->commentary->commentary($id);
             $post = $this->post->displayPost($id)->fetch();
             return $this->view->render('post_display_view', ['post' => $post,
-                'commentary' => $commentary, 'id' => $id, 'bool' => $bool]);
+                'commentary' => $commentary, 'id' => $id, 'bool' => $this->bool]);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -79,11 +80,12 @@ class FrontController
         $name = strip_tags($name);
         $pass = strip_tags($pass);
         $mail = strip_tags($mail);
-        $sql = $this->user->duplicationMail($mail);
-        if ($sql === null) {
+        $sqlName = $this->user->duplicationUser($name);
+        $sqlMail = $this->user->duplicationMail($mail);
+        if ($sqlMail === null & $sqlName === null) {
             $this->user->registerNew($name, $pass, $mail);
-            $bool = true;
-            return $this->view->render('registration_view', ['bool' => $bool]);
+            $this->bool = true;
+            return $this->view->render('registration_view', ['bool' => $this->bool]);
         } else {
             return $this->duplication();
         }
@@ -91,8 +93,8 @@ class FrontController
 
     public function duplication()
     {
-        $bool = null;
-        $this->view->render('registration_view', ['bool' => $bool]);
+        $this->bool = null;
+        $this->view->render('registration_view', ['bool' => $this->bool]);
     }
 
     public function displayPostControlList()
@@ -100,15 +102,9 @@ class FrontController
         $this->post->postSelectDisplay();
     }
 
-    public function erreurRegister()
+    public function errorRegister()
     {
-        $bool = false;
-        $this->view->render('connect_register_view', ['bool' => $bool]);
-    }
-
-    public function confirmationModificationComentaire($title, $chapo, $contained, $author, $id)
-    {
-        $this->view->render('form_modification', ['title' => $title, 'chapo' => $chapo,
-            'contained' => $contained, 'author' => $author, 'id' => $id]);
+        $this->bool = false;
+        $this->view->render('connect_register_view', ['bool' => $this->bool]);
     }
 }

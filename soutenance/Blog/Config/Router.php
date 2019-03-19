@@ -50,7 +50,7 @@ class Router
                         $this->control->controllerEmptyConnect($_POST['name_connect'],
                             $_POST['password_connect']);
                     } else {
-                        $this->front->erreurRegister();
+                        $this->front->errorRegister();
                     }
                 }
             } elseif ($_GET['route'] === 'Confirmation_Ajout_Article') {

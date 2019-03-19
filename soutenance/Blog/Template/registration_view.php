@@ -11,7 +11,7 @@ $this->title = 'Enregistrement'; ?>
         </div>
     <?php } elseif (isset($_POST['submit_register']) & $bool === null) { ?>
         <div class="alert alert-warning" role="alert">
-            Attention cette e-mail est déjà utilisé.
+            Attention cette e-mail où cette identifiant est déjà utilisé.
         </div>
     <?php } ?>
     <div class="row">
