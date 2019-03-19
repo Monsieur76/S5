@@ -65,9 +65,9 @@ $this->title = 'Administration';
                             <?php foreach ($data as $donne => $k) { ?>
                                 <tbody>
                                 <tr>
-                                    <th scope="row" style="border-top:double;border-right:double"><?= $k[1] ?></th>
-                                    <td style="border-top:double;border-right:double"><?= $k[2] ?></td>
-                                    <td style="border-top:double;border-right:double"><?= $k[5]; ?></td>
+                                    <th scope="row" id="th"><?= $k[1] ?></th>
+                                    <td id="th" ><?= $k[2] ?></td>
+                                    <td id="th" ><?= $k[5]; ?></td>
                                     <td style="border-top:double">
                                         <button type="button" class="btn col-lg-3" data-toggle="modal"
                                                 data-target="#exampleModal<?= $k[0] ?>"
@@ -273,8 +273,8 @@ $this->title = 'Administration';
                             <tbody>
                             <?php foreach ($dataAdminCommentary as $donne => $k) { ?>
                                 <tr>
-                                    <th scope="row" style="border-top:double;border-right:double"><?= $k[5] ?></th>
-                                    <th style="border-top:double;border-right:double">
+                                    <th scope="row" class="th"><?= $k[5] ?></th>
+                                    <th class="th" >
                                         <button type="button" class="btn btn-primary" style="width: 180px"
                                                 data-toggle="modal" data-target="#read<?=$k[1]?>">Lire le commentaire
                                         </button>

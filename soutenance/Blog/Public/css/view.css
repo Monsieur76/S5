@@ -139,3 +139,8 @@ a {
 a:hover {
     color: antiquewhite;
 }
+.th,#th
+{
+    border-top: double;
+    border-right: double;
+}
