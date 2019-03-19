@@ -29,7 +29,7 @@ class BackController
         $pass = strip_tags($pass);
         $data = $this->user->connect();
         while ($donne = $data->fetch()) {
-            if ($donne['pseudo'] == $name && $donne['pass'] == $pass & (strlen($name) <= 500) & (strlen($pass) <= 500)) {
+            if ($donne['pseudo'] == $name && $donne['pass'] == $pass & (strlen($name) <= 200) & (strlen($pass) <= 200)) {
                 return $this->confirmConnect($name);
             }
         }
@@ -142,8 +142,8 @@ class BackController
         $author = strip_tags($author);
         $post = $id;
         $Post = new Post;
-        if ($post > 0 & (strlen($title) <= 2000) & (strlen($chapo) <= 2000) & (strlen($contained) <= 40000)
-            & (strlen($author) <= 1000)) {
+        if ($post > 0 & (strlen($title) <= 1000) & (strlen($chapo) <= 2000) & (strlen($contained) <= 10000)
+            & (strlen($author) <= 200)) {
             $Post->updatePost($title, $chapo, $contained, $author, $post);
             $bool = true;
             return $this->admin($bool);
@@ -154,8 +154,8 @@ class BackController
 
     public function addPostConfirmationTrue($title, $chapo, $author, $contained)
     {
-        if (!empty($title) & !empty($author) & !empty($chapo) & !empty($contained) & (strlen($title) <= 2000)
-            & (strlen($chapo) <= 2000) & (strlen($contained) <= 40000) & (strlen($author) <= 1000)) {
+        if (!empty($title) & !empty($author) & !empty($chapo) & !empty($contained) & (strlen($title) <= 1000)
+            & (strlen($chapo) <= 2000) & (strlen($contained) <= 10000) & (strlen($author) <= 200)) {
             $chapo = strip_tags($chapo);
             $title = strip_tags($title);
             $contained = strip_tags($contained);

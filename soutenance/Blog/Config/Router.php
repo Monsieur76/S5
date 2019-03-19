@@ -10,11 +10,13 @@ class Router
 {
     private $front;
     private $control;
+    private $bool;
 
     function __construct()
     {
         $this->front = new Frontcontroller;
         $this->control = new BackController;
+        $this->bool = false;
     }
 
     public function run()
@@ -23,8 +25,7 @@ class Router
             if ($_GET['route'] === 'Enregistrement') {
                 $this->front->registration();
             } elseif ($_GET['route'] === 'Accueil') {
-                $bool = false;
-                $this->front->home($bool);
+                $this->front->home($this->bool);
             } elseif ($_GET['route'] === 'liste_des_Articles') {
                 $this->front->displayPost();
             } elseif ($_GET['route'] === 'Connexion') {
@@ -56,14 +57,13 @@ class Router
                 if (!empty($_POST['title']) & !empty($_POST['chapo'])
                     & !empty($_POST['author']) & !empty($_POST['contained'])) {
                     $chapo = strip_tags($_POST['chapo']);
-                    $titlle = strip_tags($_POST['title']);
+                    $title = strip_tags($_POST['title']);
                     $contained = strip_tags($_POST['contained']);
                     $author = strip_tags($_POST['author']);
-                    $this->control->addPostConfirmationTrue($titlle,
+                    $this->control->addPostConfirmationTrue($title,
                         $chapo, $author, $contained);
                 } else {
-                    $bool = false;
-                    $this->control->admin($bool);
+                    $this->control->admin($this->bool);
                 }
             } elseif ($_GET['route'] === 'confirmation_modification_article') {
                 if (!empty($_POST['title']) & !empty($_POST['chapo'])
@@ -71,8 +71,7 @@ class Router
                     $this->control->htmlTitleChapo($_POST['title'], $_POST['chapo'],
                         $_POST['author'], $_POST['contained'], $_POST['id_post']);
                 } else {
-                    $bool = false;
-                    $this->control->admin($bool);
+                    $this->control->admin($this->bool);
                 }
             } elseif ($_GET['route'] === 'Confirmation_Ajout_Utilisateur') {
                 $this->control->adminTrueUser($_POST['id']);
@@ -89,14 +88,12 @@ class Router
                     $sender = strip_tags(htmlspecialchars($_POST['mail']));
                     $form->Send($objet, $message, $sender);
                 } else {
-                    $bool = false;
-                    $this->front->home($bool);
+                    $this->front->home($this->bool);
                 }
             } elseif ($_GET['route'] === 'Validation_de_commentaire') {
                 $this->control->adminTrueCommentary($_POST['id']);
             } elseif ($_GET['route'] === 'Administration') {
-                $bool = false;
-                $this->control->admin($bool);
+                $this->control->admin($this->bool);
             } elseif ($_GET['route'] === 'Refuser_Commentaire') {
                 $this->control->deleteCommentary($_POST['id']);
             } elseif ($_GET['route'] === 'enregistrement_bon') {
@@ -112,14 +109,12 @@ class Router
             }
             else {
                 $_GET['route'] = 'Accueil';
-                $bool = false;
-                $this->front->home($bool);
+                $this->front->home($this->bool);
             }
         }
         else {
             $_GET['route'] = 'Accueil';
-            $bool = false;
-            $this->front->home($bool);
+            $this->front->home($this->bool);
         }
     }
 }

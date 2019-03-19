@@ -62,7 +62,7 @@ class FrontController
 
     public function addConfirmCommentary($id, $com, $name)
     {
-        if ($id > 0 & !empty($com) & (strlen($name) <= 500) & (strlen($com) <= 10000)) {
+        if ($id > 0 & !empty($com) & (strlen($name) <= 200) & (strlen($com) <= 10000)) {
             $this->commentary->insertCom($id, $com, $name);
             $bool = true;
             $commentary = $this->commentary->commentary($id);
