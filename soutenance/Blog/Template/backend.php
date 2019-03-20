@@ -62,8 +62,8 @@ $this->title = 'Administration';
                                 <th scope="col" style="font-size: x-large">Modification/Suppression</th>
                             </tr>
                             </thead>
-                            <?php foreach ($data as $donne => $key) { ?>
-                                <tbody>
+                            <?php /*foreach ($data as $donne => $key) { ?>
+                              <!--<tbody>
                                 <tr>
                                     <th scope="row" class="th"><?= $key[1] ?></th>
                                     <td class="th" ><?= $key[2] ?></td>
@@ -165,8 +165,8 @@ $this->title = 'Administration';
                                         </div>
                                     </td>
                                 </tr>
-                                </tbody>
-                            <?php } ?>
+                                </tbody>-->
+                            <?php }*/ ?>
                         </table>
                     </div>
                 </div>
