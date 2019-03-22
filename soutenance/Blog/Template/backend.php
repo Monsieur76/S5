@@ -323,12 +323,12 @@ $this->title = 'Administration';
                                         <button type="button" id="inputValidCom" data-toggle="modal"
                                                 class="btn col-lg-3"
                                                 data-target="#validCom<?= $k[0] ?>"><i id="validCircle"
-                                                    class="far fa-check-circle fa-2x"></i>
+                                                                                       class="far fa-check-circle fa-2x"></i>
                                         </button>
                                         <button type="button" id="inputRefusalCom" data-toggle="modal"
                                                 class="btn col-lg-3"
                                                 data-target="#refusalCom<?= $k[0] ?>"><i id="refusalCircle"
-                                                    class="far fa-times-circle fa-2x"></i>
+                                                                                         class="far fa-times-circle fa-2x"></i>
                                         </button>
                                         <div class="modal fade" id="validCom<?= $k[0] ?>" tabindex="-1" role="dialog"
                                              aria-labelledby="validCommentary" aria-hidden="true">

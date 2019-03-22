@@ -12,14 +12,23 @@ class View
     private $menu;
     private $footer;
 
-    public function render($template, $data = [])
+    public function __construct()
     {
         $this->myConfig = parse_ini_file("config.ini", true);
-        $this->template = $this->myConfig['View']['template'];
-        $this->php = $this->myConfig['View']['extension'];
-        $this->home = $this->myConfig['View']['nameFile'];
-        $this->menu = $this->myConfig['View']['menu'];
-        $this->footer = $this->myConfig['View']['footer'];
+    }
+
+    public function config($config)
+    {
+        return $this->myConfig['View']["$config"];
+    }
+
+    public function render($template, $data = [])
+    {
+        $this->template = $this->config('template');
+        $this->php = $this->config('extension');
+        $this->home = $this->config('nameFile');
+        $this->menu = $this->config('menu');
+        $this->footer = $this->config('footer');
         $this->file = $this->template . $template . $this->php;
         $this->footer = $this->template . $this->footer . $this->php;
         $this->menu = $this->template . $this->menu . $this->php;
