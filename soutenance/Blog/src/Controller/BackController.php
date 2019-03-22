@@ -24,7 +24,7 @@ class BackController
         $this->commentary = new Commentary;
     }
 
-    public function controllerEmptyConnect($name, $pass)
+    public function control($name, $pass)
     {
         $name = strip_tags($name);
         $pass = strip_tags($pass);

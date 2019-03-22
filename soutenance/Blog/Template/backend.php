@@ -281,7 +281,7 @@ $this->title = 'Administration';
                                 <th scope="col" class="scop">Commentaire</th>
                                 <th scope="col" class="scop">Article</th>
                                 <th scope="col" class="scop">Date</th>
-                                <th scope="col" class="scop">Ajouter commentaire</th>
+                                <th scope="col" class="scop" style="border-bottom: double">Ajouter commentaire</th>
                             </tr>
                             </thead>
                             <tbody>

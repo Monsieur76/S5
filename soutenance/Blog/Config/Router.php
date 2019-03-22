@@ -96,10 +96,10 @@ class Router
         }
     }
 
-    public function good()
+    public function controlEmptyConnect()
     {
         if (!empty($_POST['name_connect']) && !empty($_POST['password_connect'])) {
-             $this->control->controllerEmptyConnect($_POST['name_connect'],
+             $this->control->control($_POST['name_connect'],
                 $_POST['password_connect']);
         } else {
              $this->front->connect();
@@ -132,7 +132,7 @@ class Router
                     $this->validCommentary();
                     break;
                 case 'connexion_accomplie':
-                    $this->good();
+                    $this->controlEmptyConnect();
                     break;
                 case 'Confirmation_Ajout_Article':
                     $this->confirmAddPost();
