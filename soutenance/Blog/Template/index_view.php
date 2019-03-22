@@ -13,6 +13,14 @@ $this->title = 'Accueil'; ?>
         <div class="alert alert-info" role="alert">
             L'e-mail n'a pas pu être envoyé.Vérifier la connexion où les ports.
         </div>
+    <?php } elseif (isset($_POST['submit_connect']) & $bool === true) { ?>
+        <div class="alert alert-success" role="alert">
+            Vous êtes connecté.
+        </div>
+    <?php } elseif (isset($_POST['deco'])) { ?>
+        <div class="alert alert-success" role="alert">
+            Vous avez été déconnecté.
+        </div>
     <?php } ?>
     <div class="row">
         <h1 style="text-decoration: underline;margin-top: 30px">Accueil</h1>
@@ -47,7 +55,7 @@ $this->title = 'Accueil'; ?>
     </div>
 </div>
 
-<div class="row" style="margin-top: 250px;">
+<div class="row " style="margin-top: 250px;">
     <div class="imgg col-lg-4" style="margin-bottom: 0px">
         <img src="../Public/img/profile.png" style="width:300px;height:300px;"/>
     </div>
@@ -60,16 +68,18 @@ $this->title = 'Accueil'; ?>
             <h1 class="card-title" style="text-decoration: underline;">Contact</h1>
             <div class="col-lg-12">
                 <form action='?route=message' method='POST'>
-                    <div class="form-group row col-lg-12">
-                        <label for="inputname1" class="col-sm-3 col-form-label">Nom</label>
-                        <div class="col-sm-3">
+                    <div class="form-group row">
+                        <label for="inputname1" class="col-lg-3 col-form-label">Nom</label>
+                        <div class="col-lg-9">
                             <input type="text" name="name" id="inputname1" placeholder='durant'
                                    style="text-align: left" class="form-control"/>
                         </div>
-                        <label for="inputfirstname" class="col-sm-3 col-form-label">
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputfirstname" class="col-lg-3 col-form-label">
                             Prénom
                         </label>
-                        <div class="col-sm-3">
+                        <div class="col-lg-9">
                             <input type="text" name="first_name" id="inputfirstname" placeholder='paul'
                                    style="text-align: left" class="form-control"/>
                         </div>
@@ -94,32 +104,29 @@ $this->title = 'Accueil'; ?>
                     </div>
                     <div class="form-group" style="margin-top: 30px">
                         <button type='submit' name="submit_form"
-                                class="btnColor form-control text-center btn-dark"><i class="far fa-envelope"> Envoyer</i>
+                                class="btn btnColor form-control text-center btn-dark"><i class="far fa-envelope">
+                                Envoyer</i>
                         </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <div class="card col-lg-6" style="margin-top: 155px">
+    <div class="card col-lg-6" style="margin-top: 465px">
         <div class="card-body contact col-lg-12" style="margin-top: 0px;">
-            <div class="col-lg-12" style="margin-top: 0px">
+            <div class="col-lg-12" style="margin-top: 10px">
                 <h1 class="card-title" style="text-decoration: underline;">Suivez-Moi</h1>
-                <ul class="col-lg-12" style="margin-top: 0px; margin-bottom: 0px">
-                    <div class="col-lg-12" style="display: flex">
-                        <li id="logo" class="rotate col-lg-6">
-                            <a id="logocolor" href="https://github.com/Monsieur76/blog_OC"><i
-                                        class="fab fa-github-alt fa-5x"></i></a>
-                        </li>
-                        <li id="logo" class="rotate col-lg-6"><a id="logocolor" href="#"><i
-                                        class="fab fa-facebook-square fa-5x"></i></a></li>
-                    </div>
-                    <div class="col-lg-12" style="display: flex;margin-top: 0px">
-                        <li id="logo" class="rotate col-lg-6"><a id="logocolor" href="#"><i
-                                        class="fab fa-twitter fa-5x"></i></a></li>
-                        <li id="logo" class="rotate col-lg-6"><a id="logocolor" href="#"><i
-                                        class="fab fa-linkedin fa-5x"></i></a></li>
-                    </div>
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item"><a href="https://github.com/Monsieur76/blog_OC"><i id="logocolor"
+                                                                                            class="fab fa-github-alt fa-3x"></i></a>
+                    </li>
+                    <li class="nav-item"><a href=""><i id="logocolor" class="fab fa-facebook-square fa-3x"></i></a></li>
+                    <li class="nav-item"><a href=""><i id="logocolor" class="fab fa-twitter fa-3x"></i></a></li>
+                    <li class="nav-item"><a href=""><i id="logocolor" class="fab fa-linkedin fa-3x"></i></a></li>
+                    <li class="nav-item"><a href=""><i id="logocolor" class="fab fa-youtube fa-3x"></i></a></li>
+                    <li class="nav-item"><a href=""><i id="logocolor" class="fab fa-chrome fa-3x"></i></a></li>
+                    <li class="nav-item"><a href=""><i id="logocolor" class="fab fa-facebook-messenger fa-3x"></i></a>
+                    </li>
                 </ul>
             </div>
         </div>

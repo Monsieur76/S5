@@ -144,3 +144,45 @@ a:hover {
     border-top: double;
     border-right: double;
 }
+li
+{
+    list-style-type: none;
+}
+#h2
+{
+    text-decoration: underline;
+}
+#id
+{
+    margin-bottom: 50px;
+    overflow-wrap: break-word;
+    margin-top: 80px;
+}
+#commentarySolo
+{
+    text-align: left;
+    border-top: #9c743f double;
+}
+#validCircle
+{
+    color: green
+}
+
+#refusalCircle
+{
+    color: red
+}
+
+#updateColor
+{
+    color: #03489c;
+}
+.colorInputSave
+{
+    text-align: left
+}
+.scop
+{
+    border-right:double;
+    font-size: x-large;
+}

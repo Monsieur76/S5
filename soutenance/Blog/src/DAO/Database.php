@@ -14,8 +14,8 @@ class Database
     private static $dbn = 'dbname';
     private static $name;
     private static $charset = 'charset';
-    private static $namecharset;
-    private static $username;
+    private static $nameCharset;
+    private static $userName;
     private static $pass;
     private static $mode = [PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING];
 
@@ -24,13 +24,13 @@ class Database
         self::$myConfig = parse_ini_file("config.ini", true);
         self::$name = self::$myConfig['Database']['dbname'];
         self::$host = self::$myConfig['Database']['host'];
-        self::$namecharset = self::$myConfig['Database']['charset'];
-        self::$username = self::$myConfig['Database']['username'];
+        self::$nameCharset = self::$myConfig['Database']['charset'];
+        self::$userName = self::$myConfig['Database']['username'];
         self::$pass = self::$myConfig['Database']['pass'];
         if (!(self::$db instanceof self)) {
             try {
                 self::$db = new PDO(self::$sql . '=' . self::$host . ';' . self::$dbn . '=' . self::$name .
-                    ';' . self::$charset . '=' . self::$namecharset, self::$username, self::$pass,
+                    ';' . self::$charset . '=' . self::$nameCharset, self::$userName, self::$pass,
                     self::$mode);
             } catch (Exception $e) {
                 echo 'Échec de la connexion : ' . $e->getMessage();

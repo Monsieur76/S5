@@ -26,7 +26,7 @@ class Post
         }
     }
 
-    public function deletePost()
+    public function SelectPostForDelete()
     {
         $sql = "SELECT title,chapo,id,author,DATE_FORMAT(date_post,'%d/%m/%Y %H:%i:%s')AS datePost FROM post 
                 ORDER BY date_post DESC ";
@@ -55,9 +55,12 @@ class Post
         return $data;
     }
 
+    /*
+     *
+     */
     public function postSelectDisplay()
     {
-        $sql = "SELECT  title,chapo,id,DATE_FORMAT(date_post,'%d/%m/%Y %H:%i:%s')AS datePost
+        $sql = "SELECT title,chapo,id,DATE_FORMAT(date_post,'%d/%m/%Y %H:%i:%s')AS datePost
                 FROM post ORDER BY date_post DESC ";
         $data = $this->db->prepare($sql);
         $data->execute();
@@ -75,10 +78,10 @@ class Post
 
     public function updatePost($post)
     {
-            $update = "UPDATE post SET title = ? , chapo = ?, contained = ? , author = ? ,
+        $update = "UPDATE post SET title = ? , chapo = ?, contained = ? , author = ? ,
             date_post = NOW() WHERE id = ?";
-            $data = $this->db->prepare($update);
-            $data->execute(array($post['title'], $post['chapo'], $post['contained'],
-                $post['author'],$post['id']));
+        $data = $this->db->prepare($update);
+        $data->execute(array($post['title'], $post['chapo'], $post['contained'],
+            $post['author'], $post['id']));
     }
 }

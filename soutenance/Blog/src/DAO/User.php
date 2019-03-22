@@ -2,17 +2,14 @@
 
 namespace App\src\DAO;
 
-use App\src\Model\View;
 use \Exception;
 
 class User
 {
-    protected $view;
-    protected $db;
+    private $db;
 
     function __construct()
     {
-        $this->view = new View;
         $this->db = Database::get();
     }
 

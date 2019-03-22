@@ -44,7 +44,7 @@ class BackController
         $token = new Token;
         $token->token();
         $this->bool = true;
-        $this->view->render('connect_register_view', ['bool' => $this->bool]);
+        $this->view->render('index_view', ['bool' => $this->bool]);
     }
 
     public function isUserConnected()
@@ -102,7 +102,7 @@ class BackController
         }
     }
 
-    public function adminUserTrue($id)
+    public function adminUserFalse($id)
     {
         if ($id > 0) {
             $this->user->falseAdminWaitUser($id);
@@ -119,7 +119,7 @@ class BackController
             session_unset();
             session_destroy();
             $this->bool = true;
-            return $this->view->render('connect_register_view', ['bool' => $this->bool]);
+            return $this->view->render('index_view', ['bool' => $this->bool]);
         } else {
             return $this->view->render('erreur_404');
         }
@@ -129,22 +129,21 @@ class BackController
     {
         $dataAdminUser = $this->user->adminWait();
         $dataAdminCommentary = $this->commentary->adminValidCom();
-        $dataDelete = $this->post->deletePost();
+        $dataDelete = $this->post->SelectPostForDelete();
         $data = $this->post->postSelect();
         $this->view->render('backend', ['data' => $data, 'dataDelete' => $dataDelete,
             'dataAdminCommentary' => $dataAdminCommentary, 'dataAdminUser' => $dataAdminUser, 'bool' => $bool]);
     }
 
-    public function htmlTitleChapo($post)
+    public function htmlTitleChapo($Post)
     {
-        $post['title'] = strip_tags($post['title']);
-        $post['chapo'] = strip_tags($post['chapo']);
-        $post['contained'] = strip_tags($post['contained']);
-        $post['author'] = strip_tags($post['author']);
-        $Post = new Post;
-        if ($post > 0 & (strlen($post['title']) <= 1000) & (strlen($post['chapo']) <= 2000) & (strlen($post['contained']) <= 10000)
-            & (strlen($post['author']) <= 200)) {
-            $Post->updatePost($post);
+        $Post['title'] = strip_tags($Post['title']);
+        $Post['chapo'] = strip_tags($Post['chapo']);
+        $Post['contained'] = strip_tags($Post['contained']);
+        $Post['author'] = strip_tags($Post['author']);
+        if ($Post > 0 & (strlen($Post['title']) <= 1000) & (strlen($Post['chapo']) <= 2000) & (strlen($Post['contained']) <= 10000)
+            & (strlen($Post['author']) <= 200)) {
+            $this->post->updatePost($Post);
             $this->bool = true;
             return $this->admin($this->bool);
         } else {

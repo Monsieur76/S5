@@ -4,11 +4,6 @@ $control = new \App\src\Controller\BackController();
 if ($control->isUserConnected()) {
     ?>
     <div class="container" xmlns="http://www.w3.org/1999/html">
-        <?php if (isset($_POST['submit_connect']) & $bool === true) { ?>
-            <div class="alert alert-success" role="alert">
-                Vous êtes connecté.
-            </div>
-        <?php } ?>
         <div class="row">
             <h1 style="text-decoration: underline;margin-top: 30px">Déconnexion </h1>
         </div>
@@ -17,7 +12,7 @@ if ($control->isUserConnected()) {
                 <div class="col-sm-12">
                     <div class="form-group">
                         <button type='submit' name='deco'
-                                class="btnColor text-light btn-dark  form-control">Déconnexion
+                                class="btn btnColor text-light btn-dark  form-control">Déconnexion
                         </button>
                     </div>
                 </div>
@@ -28,11 +23,7 @@ if ($control->isUserConnected()) {
 } else {
     ?>
     <div class="container">
-        <?php if (isset($_POST['deco'])) { ?>
-            <div class="alert alert-success" role="alert">
-                Vous avez été déconnecté.
-            </div>
-        <?php } elseif (isset($_POST['submit_connect']) & $bool === false) { ?>
+        <?php if (isset($_POST['submit_connect']) & $bool === false) { ?>
             <div class="alert alert-danger" role="alert">
                 Un champ est vide où vous vous êtes trompé.
             </div>
@@ -60,7 +51,8 @@ if ($control->isUserConnected()) {
                                        placeholder='azerty' class="form-control text-center"/>
                             </div>
                         </div>
-                        <input type='submit' class="btnColor btn-dark text-light form-control" style="margin-top: 30px;"
+                        <input type='submit' class="btn btnColor btn-dark text-light form-control"
+                               style="margin-top: 30px;"
                                name='submit_connect' value='Envoyer'/>
                     </form>
                 </div>

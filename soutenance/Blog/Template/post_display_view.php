@@ -17,7 +17,7 @@ $this->title = 'Article';
     <div class="" style="word-wrap: break-word;"><?php
         echo '<br><strong style="font-size:24px">
 <div class="jumbotron">
-  <h5 class="display-4" style="text-decoration: underline">' . $post['title'] . '</h5><br></strong><br>
+  <h2 class="display-4">' . $post['title'] . '</h2><br></strong><br>
   <p class="lead">' . $post['contained'] . '</p>
   <hr class="my-4"><p><i>Par ' . $post['author'] . 'le ' . $post['date_post'] . '</i></p><br>';
         ?>
@@ -25,7 +25,7 @@ $this->title = 'Article';
     <div class="row justify-content-center">
         <div class="col-lg-3">
             <button type='button' data-target="#addCom<?= $post['id'] ?>" data-toggle="modal"
-                    class="btnColor btn-dark form-control"><i class="fas fa-comment-alt"> Ajouter commentaire</i>
+                    class="btn btnColor btn-dark form-control"><i class="fas fa-comment-alt"> Ajouter commentaire</i>
             </button>
         </div>
         <div class="modal fade" id="addCom<?= $post['id'] ?>" tabindex="-1" role="dialog"
@@ -35,7 +35,7 @@ $this->title = 'Article';
                     <form action="?route=Validation_de_Commentaire" method="post">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Nouveau commentaire</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -61,7 +61,7 @@ $this->title = 'Article';
         </div>
         <form action="?route=liste_des_Articles" method="post">
             <div class="col-lg-12">
-                <button type='submit' class="btnColor btn-dark form-control"
+                <button type='submit' class="btn btnColor btn-dark form-control"
                 ><i class="fas fa-reply"> Retour a liste des articles</i>
                 </button>
             </div>
@@ -69,12 +69,12 @@ $this->title = 'Article';
 </div>
 <div class="text-center" style="margin-top: 50px;margin-bottom: 30px">
     <div class="col-lg-12" style="text-align: left;margin-top: 80px">
-        <h2 style="text-decoration: underline;">Commentaire</h2>
+        <h2 id="h2">Commentaire</h2>
     </div>
     <div class="row">
-        <div class="col-lg-12" style="margin-bottom: 50px;overflow-wrap: break-word;margin-top: 80px">
+        <div class="col-lg-12" id="commentary">
             <?php foreach ($commentary as $donne => $k) { ?>
-                <div class="col-lg-12" style="text-align: left;border-top: #9c743f double;">
+                <div class="col-lg-12" id="commentarySolo">
                     <strong>De : <?= $k[1] ?></strong><br>
                     Le : <?= $k[2] ?><br>
                     <div style="margin-bottom: 50px;margin-top: 30px;">

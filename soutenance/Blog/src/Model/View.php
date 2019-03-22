@@ -23,7 +23,6 @@ class View
         $this->file = $this->template . $template . $this->php;
         $this->footer = $this->template . $this->footer . $this->php;
         $this->menu = $this->template . $this->menu . $this->php;
-        $route = $this->renderRoute();
         $menu = $this->renderFile($this->menu, $data);
         $footer = $this->renderFile($this->footer, $data);
         $content = $this->renderFile($this->file, $data);
@@ -32,7 +31,6 @@ class View
             'content' => $content,
             'footer' => $footer,
             'menu' => $menu,
-            'route' => $route,
             ]);
         echo $view;
     }
@@ -47,9 +45,5 @@ class View
         } else {
             echo 'Fichier inexistant';
         }
-    }
-    private function renderRoute()
-    {
-        return $_GET['route'];
     }
 }

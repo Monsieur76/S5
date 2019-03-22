@@ -36,13 +36,13 @@ $this->title = 'Enregistrement'; ?>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputname3" class="col-lg-3 col-form-label">Email</label>
-                        <div class="col-lg-9">
+                        <label for="inputname3" class="col-lg-4 col-form-label">Email</label>
+                        <div class="col-lg-8">
                             <input type="text" name="mail" id="inputname3" placeholder='azerty@hotmail.fr'
                                    class="form-control text-center"/>
                         </div>
                     </div>
-                    <button type='submit' class="btnColor btn-dark form-control"
+                    <button type='submit' class="btn btnColor btn-dark form-control"
                             name='submit_register' style="margin-top: 50px">Envoyer
                     </button>
                 </form>

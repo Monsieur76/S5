@@ -5,6 +5,7 @@ namespace App\src\Controller;
 use App\src\DAO\Post;
 use App\src\DAO\Commentary;
 use App\src\DAO\User;
+use App\src\Model\Contact;
 use App\src\Model\View;
 
 class FrontController
@@ -25,6 +26,9 @@ class FrontController
         $this->control = new BackController;
     }
 
+    /**
+     *
+     */
     public function registration()
     {
         $this->bool = false;
@@ -48,6 +52,9 @@ class FrontController
         $this->view->render('connect_register_view', ['bool' => $this->bool]);
     }
 
+    /**
+     * @param $id
+     */
     public function displayPostList($id)
     {
         $commentary = $this->commentary->commentary($id);
@@ -97,6 +104,9 @@ class FrontController
         $this->view->render('registration_view', ['bool' => $this->bool]);
     }
 
+    /**
+     *
+     */
     public function displayPostControlList()
     {
         $this->post->postSelectDisplay();
@@ -106,5 +116,10 @@ class FrontController
     {
         $this->bool = false;
         $this->view->render('connect_register_view', ['bool' => $this->bool]);
+    }
+    public function contact($object,$message,$sender)
+    {
+        $contact = new Contact;
+        $contact->Send($object, $message, $sender);
     }
 }
