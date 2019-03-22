@@ -19,11 +19,6 @@ class Router
         $this->bool = false;
     }
 
-    public function routeView($route)
-    {
-        return ($_GET['route'] === $route);
-    }
-
     public function validCommentary()
     {
         if (!empty($_POST['com']) & !empty($_POST['name'])) {
@@ -59,16 +54,6 @@ class Router
         $this->control->htmlTitleChapo($post);
     }
 
-    public function submitContact()
-    {
-        $name = strip_tags(htmlspecialchars($_POST['name']));
-        $first = strip_tags(htmlspecialchars($_POST['first_name']));
-        $object = [$name, $first];
-        $message = strip_tags(htmlspecialchars($_POST['message']));
-        $sender = strip_tags(htmlspecialchars($_POST['mail']));
-        $this->front->contact($object, $message, $sender);
-    }
-
     public function homeFunction()
     {
         $this->front->home($this->bool);
@@ -91,7 +76,12 @@ class Router
     {
         if (!empty($_POST['first_name']) &&
             !empty($_POST['mail']) && !empty($_POST['message'])) {
-            $this->submitContact();
+            $name = strip_tags(htmlspecialchars($_POST['name']));
+            $first = strip_tags(htmlspecialchars($_POST['first_name']));
+            $object = [$name, $first];
+            $message = strip_tags(htmlspecialchars($_POST['message']));
+            $sender = strip_tags(htmlspecialchars($_POST['mail']));
+            $this->front->contact($object, $message, $sender);
         } else {
              $this->homeFunction();
         }
@@ -120,45 +110,61 @@ class Router
     public function run()
     {
         if (isset($_GET['route'])) {
-            if ($this->routeView('Enregistrement')) {
-                 $this->front->registration();
-            } elseif ($this->routeView('Accueil')) {
-                 $this->homeFunction();
-            } elseif ($this->routeView('liste_des_Articles')) {
-                 $this->front->displayPost();
-            } elseif ($this->routeView('Connexion')) {
-                 $this->front->connect();
-            } elseif ($this->routeView('Afficher_un_Article')) {
-                 $this->front->displayPostList($_POST['id']);
-            } elseif ($this->routeView('Validation_de_Suppression')) {
-                 $this->control->deleteConfirm($_POST['id']);
-            } elseif ($this->routeView('Validation_de_Commentaire')) {
-                 $this->validCommentary();
-            } elseif ($this->routeView('connexion_accomplie')) {
-                 $this->good();
-            } elseif ($this->routeView('Confirmation_Ajout_Article')) {
-                 $this->confirmAddPost();
-            } elseif ($this->routeView('confirmation_modification_article')) {
-                 $this->confirmUpdatePost();
-            } elseif ($this->routeView('Confirmation_Ajout_Utilisateur')) {
-                 $this->control->adminTrueUser($_POST['id']);
-            } elseif ($this->routeView('supprimer_utilisateur')) {
-                 $this->control->adminUserFalse($_POST['id']);
-            } elseif ($this->routeView('deconnexion')) {
-                 $this->control->logOut($_POST['deco']);
-            } elseif (isset($_POST['submit_form'])) {
-                 $this->contact();
-            } elseif ($this->routeView('Validation_de_commentaire')) {
-                 $this->control->adminTrueCommentary($_POST['id']);
-            } elseif ($this->routeView('Administration')) {
-                 $this->control->admin($this->bool);
-            } elseif ($this->routeView('Refuser_Commentaire')) {
-                 $this->control->deleteCommentary($_POST['id']);
-            } elseif ($this->routeView('enregistrement_bon')) {
-                 $this->registerGood();
-            } else {
-                $_GET['route'] = 'Accueil';
-                $this->homeFunction();
+            switch ($_GET['route']) {
+                case 'Enregistrement':
+                    $this->front->registration();
+                    break;
+                case 'Accueil':
+                    $this->homeFunction();
+                    break;
+                case 'liste_des_Articles':
+                    $this->front->displayPost();
+                    break;
+                case 'Connexion':
+                    $this->front->connect();
+                    break;
+                case 'Afficher_un_Article':
+                    $this->front->displayPostList($_POST['id']);
+                    break;
+                case 'Validation_de_Suppression':
+                    $this->control->deleteConfirm($_POST['id']);
+                    break;
+                case 'Validation_de_Commentaire':
+                    $this->validCommentary();
+                    break;
+                case 'connexion_accomplie':
+                    $this->good();
+                    break;
+                case 'Confirmation_Ajout_Article':
+                    $this->confirmAddPost();
+                    break;
+                case 'confirmation_modification_article':
+                    $this->confirmUpdatePost();
+                    break;
+                case 'Confirmation_Ajout_Utilisateur':
+                    $this->control->adminTrueUser($_POST['id']);
+                    break;
+                case 'supprimer_utilisateur':
+                    $this->control->adminUserFalse($_POST['id']);
+                    break;
+                case 'deconnexion':
+                    $this->control->logOut($_POST['deco']);
+                    break;
+                case 'Validation_de_commentaire':
+                    $this->control->adminTrueCommentary($_POST['id']);
+                    break;
+                case 'Administration':
+                    $this->control->admin($this->bool);
+                    break;
+                case 'Refuser_Commentaire':
+                    $this->control->deleteCommentary($_POST['id']);
+                    break;
+                case 'enregistrement_bon':
+                    $this->registerGood();
+                    break;
+            }
+            if (isset($_POST['submit_form'])) {
+                $this->contact();
             }
         } else {
             $_GET['route'] = 'Accueil';
