@@ -22,3 +22,5 @@ Dans pass mettez votre mot de passe de votre boite mail.
 Dans mailFrom mettez votre mail.
 Dans mailName mettez votre nom.
 ATTENTION si vous ne vous n’êtes pas connaisseur, ne toucher a rien dans la section view.
+
+https://codeclimate.com/github/Monsieur76/blog_OC
