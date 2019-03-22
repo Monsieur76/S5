@@ -40,15 +40,9 @@ $this->title = 'Administration';
                                 <th scope="col" class="scop">Date de l'article</th>
                                 <th scope="col" class="scop" style="font-size: x-large">Modification/Suppression</th>
                             </tr>
-<<<<<<< HEAD
                           </thead>
                             <tbody>
                             <?php foreach ($data as $donne => $key) { ?>
-=======
-                            </thead>
-                            <?php /*foreach ($data as $donne => $key) { ?>
-                              <!--<tbody>
->>>>>>> 1f09de7e6c4695c01366a10297580bd20a60fda6
                                 <tr>
                                     <th scope="row" class="th"><?= $key[1] ?></th>
                                     <td class="th"><?= $key[2] ?></td>
@@ -157,13 +151,8 @@ $this->title = 'Administration';
                                         </div>
                                     </td>
                                 </tr>
-<<<<<<< HEAD
                             <?php } ?>
                             </tbody>
-=======
-                                </tbody>-->
-                            <?php }*/ ?>
->>>>>>> 1f09de7e6c4695c01366a10297580bd20a60fda6
                         </table>
                     </div>
                 </div>

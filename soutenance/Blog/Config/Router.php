@@ -33,7 +33,7 @@ class Router
             $com = strip_tags(htmlspecialchars($_POST['com']));
             $this->front->addConfirmCommentary($id, $com, $name);
         } else {
-            return $this->front->displayPostList($_POST['id']);
+             $this->front->displayPostList($_POST['id']);
         }
     }
 
@@ -48,7 +48,7 @@ class Router
             $this->control->addPostConfirmationTrue($title,
                 $chapo, $author, $contained);
         } else {
-            return $this->control->admin($this->bool);
+            $this->control->admin($this->bool);
         }
     }
 
@@ -71,7 +71,7 @@ class Router
 
     public function homeFunction()
     {
-        return $this->front->home($this->bool);
+        $this->front->home($this->bool);
     }
 
     public function registerGood()
@@ -93,7 +93,7 @@ class Router
             !empty($_POST['mail']) && !empty($_POST['message'])) {
             $this->submitContact();
         } else {
-            return $this->homeFunction();
+             $this->homeFunction();
         }
     }
 
@@ -103,17 +103,17 @@ class Router
             & !empty($_POST['author']) & !empty($_POST['contained'])) {
             $this->confirmUpdatePost();
         } else {
-            return $this->control->admin($this->bool);
+             $this->control->admin($this->bool);
         }
     }
 
     public function good()
     {
         if (!empty($_POST['name_connect']) && !empty($_POST['password_connect'])) {
-            return $this->control->controllerEmptyConnect($_POST['name_connect'],
+             $this->control->controllerEmptyConnect($_POST['name_connect'],
                 $_POST['password_connect']);
         } else {
-            return $this->front->connect();
+             $this->front->connect();
         }
     }
 
@@ -121,48 +121,48 @@ class Router
     {
         if (isset($_GET['route'])) {
             if ($this->routeView('Enregistrement')) {
-                return $this->front->registration();
+                 $this->front->registration();
             } elseif ($this->routeView('Accueil')) {
-                return $this->homeFunction();
+                 $this->homeFunction();
             } elseif ($this->routeView('liste_des_Articles')) {
-                return $this->front->displayPost();
+                 $this->front->displayPost();
             } elseif ($this->routeView('Connexion')) {
-                return $this->front->connect();
+                 $this->front->connect();
             } elseif ($this->routeView('Afficher_un_Article')) {
-                return $this->front->displayPostList($_POST['id']);
+                 $this->front->displayPostList($_POST['id']);
             } elseif ($this->routeView('Validation_de_Suppression')) {
-                return $this->control->deleteConfirm($_POST['id']);
+                 $this->control->deleteConfirm($_POST['id']);
             } elseif ($this->routeView('Validation_de_Commentaire')) {
-                return $this->validCommentary();
+                 $this->validCommentary();
             } elseif ($this->routeView('connexion_accomplie')) {
-                return $this->good();
+                 $this->good();
             } elseif ($this->routeView('Confirmation_Ajout_Article')) {
-                return $this->confirmAddPost();
+                 $this->confirmAddPost();
             } elseif ($this->routeView('confirmation_modification_article')) {
-                return $this->confirmUpdatePost();
+                 $this->confirmUpdatePost();
             } elseif ($this->routeView('Confirmation_Ajout_Utilisateur')) {
-                return $this->control->adminTrueUser($_POST['id']);
+                 $this->control->adminTrueUser($_POST['id']);
             } elseif ($this->routeView('supprimer_utilisateur')) {
-                return $this->control->adminUserFalse($_POST['id']);
+                 $this->control->adminUserFalse($_POST['id']);
             } elseif ($this->routeView('deconnexion')) {
-                return $this->control->logOut($_POST['deco']);
+                 $this->control->logOut($_POST['deco']);
             } elseif (isset($_POST['submit_form'])) {
-                return $this->contact();
+                 $this->contact();
             } elseif ($this->routeView('Validation_de_commentaire')) {
-                return $this->control->adminTrueCommentary($_POST['id']);
+                 $this->control->adminTrueCommentary($_POST['id']);
             } elseif ($this->routeView('Administration')) {
-                return $this->control->admin($this->bool);
+                 $this->control->admin($this->bool);
             } elseif ($this->routeView('Refuser_Commentaire')) {
-                return $this->control->deleteCommentary($_POST['id']);
+                 $this->control->deleteCommentary($_POST['id']);
             } elseif ($this->routeView('enregistrement_bon')) {
-                return $this->registerGood();
+                 $this->registerGood();
             } else {
                 $_GET['route'] = 'Accueil';
-                return $this->homeFunction();
+                $this->homeFunction();
             }
         } else {
             $_GET['route'] = 'Accueil';
-            return $this->homeFunction();
+            $this->homeFunction();
         }
     }
 }
