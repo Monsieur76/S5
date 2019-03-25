@@ -165,8 +165,12 @@ class Router
             if (isset($_POST['submit_form'])) {
                 $this->contact();
             }
+            else{
+                $_GET['route']= 'Accueil';
+                $this->homeFunction();
+            }
         } else {
-            $_GET['route'] = 'Accueil';
+            $_GET['route']= 'Accueil';
             $this->homeFunction();
         }
     }
