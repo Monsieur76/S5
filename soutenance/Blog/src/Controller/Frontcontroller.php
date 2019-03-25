@@ -26,9 +26,6 @@ class FrontController
         $this->control = new BackController;
     }
 
-    /**
-     *
-     */
     public function registration()
     {
         $this->bool = false;
@@ -74,8 +71,8 @@ class FrontController
             $this->commentary->insertCom($id, $com, $name);
             $this->bool = true;
             return $this->view->render('post_display_view', ['post' => $post,
-                'commentary' => $commentary, 'id' => $id, 'bool' => $this->bool]);}
-            else{
+                'commentary' => $commentary, 'id' => $id, 'bool' => $this->bool]);
+            } else{
                 $bool = null;
                 return $this->view->render('post_display_view', ['post' => $post,
                     'commentary' => $commentary, 'id' => $id, 'bool' => $this->bool]);
@@ -107,9 +104,6 @@ class FrontController
         $this->view->render('registration_view', ['bool' => $this->bool]);
     }
 
-    /**
-     *
-     */
     public function displayPostControlList()
     {
         $this->post->postSelectDisplay();
