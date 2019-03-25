@@ -12,7 +12,7 @@ $this->title = 'Article';
         </div>
     <?php } elseif (isset($_POST['com']) & $bool === null) { ?>
     <div class="alert alert-danger" role="alert">
-        Caratère dépassé.
+        Caractère dépassé.
     </div>
     <?php } ?>
     <div class="row">

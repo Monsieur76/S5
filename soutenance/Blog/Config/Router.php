@@ -62,10 +62,14 @@ class Router
     {
         if (isset($_POST['submit_register']) & !empty($_POST['mail']) &
             !empty($_POST['name']) & !empty($_POST['pass_register']) & preg_match
-            ("#[a-zA-Z0-9-]@[a-zA-Z0-9-].+[a-zA-Z0-9-]#", $_POST['mail']) & (strlen($_POST['mail']) <= 100)
-            & (strlen($_POST['name']) <= 100) & (strlen($_POST['pass_register']) <= 100)) {
+            ("#[a-zA-Z0-9-]@[a-zA-Z0-9-].+[a-zA-Z0-9-]#", $_POST['mail'])) {
+            if ((strlen($_POST['mail']) <= 100)
+            & (strlen($_POST['name']) <= 50) & (strlen($_POST['pass_register']) <= 50)) {
             $this->front->controllerEmptyRegister($_POST['name'],
                 $_POST['pass_register'], $_POST['mail']);
+            }else{
+                $this->front->errorRegistration();
+            }
         } else {
             $this->front->registration();
         }

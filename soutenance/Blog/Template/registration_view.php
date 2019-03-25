@@ -13,6 +13,10 @@ $this->title = 'Enregistrement'; ?>
         <div class="alert alert-warning" role="alert">
             Attention cette e-mail où cette identifiant est déjà utilisé.
         </div>
+    <?php } elseif (isset($_POST['submit_register']) & $bool === 0) { ?>
+    <div class="alert alert-danger" role="alert">
+        Caractère dépassé.
+    </div>
     <?php } ?>
     <div class="row">
         <div class="card col-lg-5" style="width: 18rem;align-items: center;

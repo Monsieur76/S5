@@ -28,7 +28,7 @@ $this->title = 'Administration';
                         </div>
                     <?php } elseif (isset($_POST['update']) & $bool === null) { ?>
                     <div class="alert alert-danger" role="alert">
-                        Caratère dépassé.
+                        Caractère dépassé.
                     </div>
                     <?php } elseif (isset($_POST['delete']) & $bool === true) { ?>
                         <div class="alert alert-success" role="alert">
@@ -185,7 +185,7 @@ $this->title = 'Administration';
                     </div>
                 <?php } elseif (isset($_POST['registerPost']) & $bool === null) { ?>
                     <div class="alert alert-danger" role="alert">
-                        Caratère dépassé.
+                        Caractère dépassé.
                     </div>
                 <?php } ?>
                 <div class="card-body">

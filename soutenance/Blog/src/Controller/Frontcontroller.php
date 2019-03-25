@@ -32,6 +32,12 @@ class FrontController
         $this->view->render('registration_view', ['bool' => $this->bool]);
     }
 
+    public function errorRegistration()
+    {
+        $this->bool = 0;
+        $this->view->render('registration_view', ['bool' => $this->bool]);
+    }
+
     public function home($bool)
     {
         $this->view->render('index_view', ['bool' => $bool ]);
