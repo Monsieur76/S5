@@ -141,10 +141,14 @@ class BackController
         $Post['chapo'] = strip_tags($Post['chapo']);
         $Post['contained'] = strip_tags($Post['contained']);
         $Post['author'] = strip_tags($Post['author']);
-        if ($Post > 0 & (strlen($Post['title']) <= 1000) & (strlen($Post['chapo']) <= 2000) & (strlen($Post['contained']) <= 10000)
+        if ($Post > 0 ){
+            if ((strlen($Post['title']) <= 1000) & (strlen($Post['chapo']) <= 2000)& (strlen($Post['contained']) <= 10000)
             & (strlen($Post['author']) <= 200)) {
             $this->post->updatePost($Post);
             $this->bool = true;
+            }else{
+                $bool = null;
+            }
             return $this->admin($this->bool);
         } else {
             return $this->view->render('erreur_404');
@@ -154,7 +158,7 @@ class BackController
     public function addPostConfirmationTrue($title, $chapo, $author, $contained)
     {
         if (!empty($title) & !empty($author) & !empty($chapo) & !empty($contained) & (strlen($title) <= 1000)
-            & (strlen($chapo) <= 1000) & (strlen($contained) <= 10000) & (strlen($author) <= 200)) {
+            || (strlen($chapo) <= 1000) || (strlen($contained) <= 10000) || (strlen($author) <= 200)) {
             $chapo = strip_tags($chapo);
             $title = strip_tags($title);
             $contained = strip_tags($contained);
@@ -162,7 +166,7 @@ class BackController
             $this->htmlTitleChapoPost($title, $chapo, $author, $contained);
             $this->bool = true;
         } else {
-            $this->bool = false;
+            $this->bool = null;
         }
         return $this->admin($this->bool);
     }

@@ -26,6 +26,10 @@ $this->title = 'Administration';
                         <div class="alert alert-danger" role="alert">
                             Un champ est vide.
                         </div>
+                    <?php } elseif (isset($_POST['update']) & $bool === null) { ?>
+                    <div class="alert alert-danger" role="alert">
+                        Caratère dépassé.
+                    </div>
                     <?php } elseif (isset($_POST['delete']) & $bool === true) { ?>
                         <div class="alert alert-success" role="alert">
                             L'article a bien été supprimé
@@ -178,6 +182,10 @@ $this->title = 'Administration';
                 <?php } elseif (isset($_POST['registerPost']) & $bool === false) { ?>
                     <div class="alert alert-danger" role="alert">
                         Un champ est vide.
+                    </div>
+                <?php } elseif (isset($_POST['registerPost']) & $bool === null) { ?>
+                    <div class="alert alert-danger" role="alert">
+                        Caratère dépassé.
                     </div>
                 <?php } ?>
                 <div class="card-body">

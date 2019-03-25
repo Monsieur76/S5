@@ -52,9 +52,6 @@ class FrontController
         $this->view->render('connect_register_view', ['bool' => $this->bool]);
     }
 
-    /**
-     * @param $id
-     */
     public function displayPostList($id)
     {
         $commentary = $this->commentary->commentary($id);
@@ -70,13 +67,19 @@ class FrontController
 
     public function addConfirmCommentary($id, $com, $name)
     {
-        if ($id > 0 & !empty($com) & (strlen($name) <= 200) & (strlen($com) <= 10000)) {
-            $this->commentary->insertCom($id, $com, $name);
-            $this->bool = true;
+        if ($id > 0 ){
             $commentary = $this->commentary->commentary($id);
             $post = $this->post->displayPost($id)->fetch();
+            if (!empty($com) & (strlen($name) <= 200) & (strlen($com) <= 2000)) {
+            $this->commentary->insertCom($id, $com, $name);
+            $this->bool = true;
             return $this->view->render('post_display_view', ['post' => $post,
-                'commentary' => $commentary, 'id' => $id, 'bool' => $this->bool]);
+                'commentary' => $commentary, 'id' => $id, 'bool' => $this->bool]);}
+            else{
+                $bool = null;
+                return $this->view->render('post_display_view', ['post' => $post,
+                    'commentary' => $commentary, 'id' => $id, 'bool' => $this->bool]);
+            }
         } else {
             return $this->view->render('erreur_404');
         }

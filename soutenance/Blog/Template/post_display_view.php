@@ -10,6 +10,10 @@ $this->title = 'Article';
         <div class="alert alert-danger" role="alert">
             Un champ est vide.
         </div>
+    <?php } elseif (isset($_POST['com']) & $bool === null) { ?>
+    <div class="alert alert-danger" role="alert">
+        Caratère dépassé.
+    </div>
     <?php } ?>
     <div class="row">
         <h1 style="text-decoration: underline;margin-top: 30px"> L'article </h1>
