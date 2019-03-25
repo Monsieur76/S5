@@ -36,7 +36,7 @@ class Contact
             ->setPassword("$this->pass");
         if(filter_var($sender,FILTER_VALIDATE_EMAIL)){
         $mailer = new \Swift_Mailer($transport);
-        $message = (new \Swift_Message('Un Email vien est arriver'))
+        $message = (new \Swift_Message('Un Email est arrivé'))
             ->setFrom(["$this->mailFrom" => "$this->mailName"])
             ->setTo(["$sender" => "de $object[1] $object[0]"])
             ->setBody("$contained");
