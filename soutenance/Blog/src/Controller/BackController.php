@@ -154,7 +154,7 @@ class BackController
     public function addPostConfirmationTrue($title, $chapo, $author, $contained)
     {
         if (!empty($title) & !empty($author) & !empty($chapo) & !empty($contained) & (strlen($title) <= 1000)
-            & (strlen($chapo) <= 2000) & (strlen($contained) <= 10000) & (strlen($author) <= 200)) {
+            & (strlen($chapo) <= 1000) & (strlen($contained) <= 10000) & (strlen($author) <= 200)) {
             $chapo = strip_tags($chapo);
             $title = strip_tags($title);
             $contained = strip_tags($contained);
