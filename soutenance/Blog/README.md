@@ -1,4 +1,6 @@
 "# blog_OC" 
+[![Maintainability](https://api.codeclimate.com/v1/badges/f8d14b0531eefc689718/maintainability)](https://codeclimate.com/github/Monsieur76/blog_OC/maintainability)
+
 Installation du site Préalable 
 	Avoir un server 
 	Avoir un accès au phpMyAdmin 
@@ -20,5 +22,3 @@ Dans userName mettez votre identifiant de connexion boite mail.
 Dans pass mettez votre mot de passe de votre boite mail. 
 Dans mailFrom mettez votre mail. Dans mailName mettez votre nom. 
 ATTENTION si vous ne vous n’êtes pas connaisseur, ne toucher a rien dans la section view.
-
-https://codeclimate.com/github/Monsieur76/blog_OC
