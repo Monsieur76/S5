@@ -11,6 +11,8 @@ Avant de mettre le site en ligne
 *	Configurer le fichier config.ini qui se trouve dans src
 
 Le fichier config.ini 
+
+* **ATTENTION si vous ne vous n’êtes pas connaisseur, ne toucher a rien dans la section view.**
 * Mettez votre url de host à la place de localhost
 * Mettez votre nom de base de donné a la place de soutenance par défaut ne toucher a rien. 
 * Mettez votre charset a la place de UTF8 par défaut ne toucher a rien. 
@@ -21,4 +23,3 @@ Le fichier config.ini
 * Dans userName mettez votre identifiant de connexion boite mail. 
 * Dans pass mettez votre mot de passe de votre boite mail. 
 * Dans mailFrom mettez votre mail. Dans mailName mettez votre nom. 
-* ATTENTION si vous ne vous n’êtes pas connaisseur, ne toucher a rien dans la section view.
