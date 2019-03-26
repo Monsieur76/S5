@@ -11,7 +11,9 @@ Avant de mettre le site en ligne
 *	Configurer le fichier config.ini qui se trouve dans src
 
 **ATTENTION si vous ne vous n’êtes pas connaisseur, ne toucher a rien dans cette section view.**
+
 Le fichier config.ini
+
 * Mettez votre url de host à la place de localhost
 * Mettez votre nom de base de donné a la place de soutenance par défaut ne toucher a rien. 
 * Mettez votre charset a la place de UTF8 par défaut ne toucher a rien. 
